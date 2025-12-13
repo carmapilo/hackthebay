@@ -1,0 +1,95 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { siteContent } from "@/content/siteContent";
+
+export function FAQSection() {
+  const faqs = siteContent.faq.items;
+  const [selectedFAQ, setSelectedFAQ] = useState(0);
+
+  return (
+    <section
+      id="faq"
+      className="relative flex min-h-screen w-full items-center justify-center overflow-visible px-6 py-12"
+    >
+      <div className="relative w-full max-w-6xl text-white">
+        <p className="mb-8 text-center text-4xl font-black uppercase tracking-[0.25em] text-cyan-200">
+          {siteContent.faq.heading}
+        </p>
+
+        <div className="relative h-[520px] w-full">
+          {/* Neptune cluster */}
+          <div className="absolute left-[8%] top-[8%] flex flex-col items-center gap-3 text-center">
+            <div className="relative h-72 w-72 p-3">
+              <div className="absolute inset-0 rounded-full bg-linear-to-br from-blue-400 via-blue-600 to-blue-800" />
+              {faqs.map((faq, index) => {
+                const count = Math.max(faqs.length, 1);
+                const radius = 140;
+                // First moon at 9 o'clock (180°), evenly spaced around 360°
+                const angle = 180 + (index * 360) / count;
+                const x = Math.cos((angle * Math.PI) / 180) * radius;
+                const y = Math.sin((angle * Math.PI) / 180) * radius;
+
+                const isActive = selectedFAQ === index;
+
+                return (
+                  <motion.button
+                    key={faq.question}
+                    onClick={() => setSelectedFAQ(index)}
+                    className={`absolute flex h-20 w-20 items-center justify-center rounded-full p-12 text-center text-[11px] font-bold transition ${
+                      isActive
+                        ? "bg-cyan-400 text-black shadow-lg shadow-cyan-400/40"
+                        : "bg-gray-300 text-black"
+                    }`}
+                    style={{
+                      left: "35%",
+                      top: "35%",
+                      transformOrigin: "center",
+                    }}
+                    initial={{ x, y }}
+                    animate={{ x, y }}
+                    whileHover={{ scale: 1.08, x, y }}
+                    aria-label={faq.question}
+                  >
+                    {faq.question}
+                  </motion.button>
+                );
+              })}
+            </div>
+            <span className="pt-10 text-sm uppercase tracking-[0.25em] text-cyan-100/80">
+              {siteContent.faq.neptune}
+            </span>
+          </div>
+
+          {/* Uranus answer */}
+          <div className="absolute right-[8%] bottom-[8%] flex flex-col items-center gap-3 text-center">
+            <motion.div
+              key={selectedFAQ}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+              className="relative h-80 w-80 rounded-full border border-cyan-400/60 bg-linear-to-br from-green-400 via-cyan-500 to-blue-600 p-8 text-center"
+            >
+              <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.2),transparent_45%)]" />
+              <div className="relative flex h-full w-full flex-col items-center justify-center gap-3 px-4 text-center text-white">
+                <p className="text-sm uppercase tracking-[0.2em] text-cyan-100">
+                  Answer
+                </p>
+                <h3 className="text-lg font-bold text-cyan-50">
+                  {faqs[selectedFAQ].question}
+                </h3>
+                <p className="text-sm text-cyan-50/90">
+                  {faqs[selectedFAQ].answer}
+                </p>
+              </div>
+            </motion.div>
+            <span className="pt-10 text-sm uppercase tracking-[0.25em] text-cyan-100/80">
+              {siteContent.faq.uranus}
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -43,6 +43,7 @@ const orbitron = Orbitron({ subsets: ['latin'], weight: ['400', '700', '900'] })
 
 export default function RootLayout({ children }) {
 return (
+
 <html className={orbitron.className}>
 <body>{children}</body>
 </html>
@@ -65,6 +66,7 @@ The sun is a **perfect circle** that starts **half above the viewport** (only th
 \`\`\`typescript
 export function HeroSection() {
 return (
+
 <section className="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center">
 {/_ Sun Circle _/}
 <motion.div
@@ -139,6 +141,7 @@ export function EarthSection() {
 const [isHovered, setIsHovered] = useState(false)
 
 return (
+
 <section className="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center">
 
       {/* Container for planet and text box */}
@@ -287,6 +290,7 @@ description: 'Develop iOS and Android apps with cutting-edge mobile tech.'
 }
 
 return (
+
 <section className="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center">
 
       <div className="flex items-center justify-center w-full gap-20">
@@ -442,6 +446,7 @@ answer: 'No! Beginners and experts welcome. Learn from mentors and experienced h
 ]
 
 return (
+
 <section className="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center">
 
       <div className="flex items-center justify-center w-full gap-40">
@@ -574,6 +579,12 @@ The `key={selectedFAQ}` is **crucial** - it tells React to remount this componen
 
 A realistic **starfield** with thousands of small stars scattered across the space background. Static (doesn't animate).
 
+#### Choosing between procedural stars vs. a background image
+
+- Prefer procedural stars (like the implementation below) for zero-image weight, crisp rendering on any viewport, and easy density/brightness tweaks.
+- If you have a beautiful texture, layer it behind the procedural stars: set `body` to a subtle gradient or image, then keep the thin procedural layer on top for sparkle without banding or heavy payloads.
+- Avoid huge PNGs; if using an image, export as AVIF/WebP around 1–2k wide. Use `background-size: cover;` and keep parallax/fixed backgrounds desktop-only to avoid mobile jank.
+
 ### Implementation
 
 \`\`\`typescript
@@ -587,6 +598,7 @@ opacity: Math.random() _ 0.7 + 0.3,
 }))
 
 return (
+
 <div className="fixed inset-0 pointer-events-none">
 {stars.map(star => (
 <div
@@ -677,6 +689,13 @@ cursor: url('data-uri') hotspotX hotspotY, fallback;
 - **`12 2`** = click hotspot (top-left of the star)
 - **`auto`** = fallback to normal cursor if SVG fails
 
+#### Using your own asset (PNG or SVG)
+
+- Place the file in `public/cursor.svg` (or `.png`), then: `cursor: url('/cursor.svg') 12 2, auto;`
+- Keep it ≤32px for crisp edges; ship a 2x PNG fallback if your SVG uses gradients/filters.
+- Adjust the hotspot (`12 2` above) so clicks feel accurate on both Windows and macOS.
+- Ensure the cursor shape doesn't hide button focus/hover states.
+
 ### Custom Star SVG
 
 \`\`\`svg
@@ -686,6 +705,19 @@ cursor: url('data-uri') hotspotX hotspotY, fallback;
 \`\`\`
 
 This creates a **5-point star**. You can modify the `d="..."` path to create different shapes.
+
+---
+
+## Content Management for Copy
+
+- For a small site, prefer a typed TypeScript module (e.g., `content/siteContent.ts`) exporting objects for hero, tracks, and FAQs. This keeps copy centralized with intellisense and no runtime parsing.
+- If you want pure data, store JSON plus a small validator (zod or a type guard) before using it.
+- Suggested shape:
+  - `hero: { title, subtitle, cta, ctaHref }`
+  - `earth: { heading, body }`
+  - `mars: { heading, tracks: { id, title, description }[] }`
+  - `faq: { items: { question, answer }[] }`
+- Centralizing copy makes future localization or CMS migration easier.
 
 ---
 
