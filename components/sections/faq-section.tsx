@@ -23,6 +23,9 @@ export function FAQSection() {
           <div className="flex flex-col items-center gap-3 text-center">
             <div className="relative h-72 w-72 p-3">
               <div className="absolute inset-0 rounded-full bg-linear-to-br from-blue-400 via-blue-600 to-blue-800" />
+              <span className="absolute left-1 top-1 -rotate-45 text-[10px] uppercase tracking-[0.25em] text-cyan-100/90">
+                {siteContent.faq.neptune}
+              </span>
               {faqs.map((faq, index) => {
                 const count = Math.max(faqs.length, 1);
                 const radius = 140;
@@ -57,9 +60,6 @@ export function FAQSection() {
                 );
               })}
             </div>
-            <span className="pt-10 text-sm uppercase tracking-[0.25em] text-cyan-100/80">
-              {siteContent.faq.neptune}
-            </span>
           </div>
 
           {/* Uranus answer */}
@@ -83,10 +83,10 @@ export function FAQSection() {
                   {faqs[selectedFAQ].answer}
                 </p>
               </div>
+              <span className="absolute left-1 top-1 -rotate-45 text-[10px] uppercase tracking-[0.25em] text-cyan-100/90">
+                {siteContent.faq.uranus}
+              </span>
             </motion.div>
-            <span className="pt-10 text-sm uppercase tracking-[0.25em] text-cyan-100/80">
-              {siteContent.faq.uranus}
-            </span>
           </div>
         </div>
       </div>

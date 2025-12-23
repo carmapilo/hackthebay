@@ -32,19 +32,9 @@ export function MarsSection() {
           {siteContent.mars.heading}
         </p>
 
-        <div className="flex w-full flex-col items-center justify-center gap-10 md:flex-row md:items-center">
-          <div className="w-full max-w-lg rounded-xl border border-orange-400/60 bg-slate-900/70 p-6 text-white backdrop-blur">
-            <h2 className="text-2xl font-bold text-orange-300">
-              {activeTrack ? activeTrack.title : "Click a track to learn more"}
-            </h2>
-            <p className="mt-3 text-base text-orange-50/90">
-              {activeTrack
-                ? activeTrack.description
-                : "Click on a track to learn more about it!"}
-            </p>
-          </div>
+        <div className="relative flex w-full flex-col items-center justify-center gap-6 md:gap-10 md:flex-row md:items-center">
           <motion.div
-            className="relative flex h-72 w-72 shrink-0 items-center justify-center md:h-86 md:w-86"
+            className="relative order-1 flex h-60 w-60 shrink-0 items-center justify-center md:order-2 md:h-72 md:w-72 lg:h-86 lg:w-86"
             animate={{
               scale: isHovered ? 1.1 : 1,
               x: 0,
@@ -109,14 +99,24 @@ export function MarsSection() {
             </div>
 
             <motion.span
-              className="absolute left-1/2 text-sm uppercase tracking-[0.25em] text-orange-100/80"
-              style={{ bottom: "-22px", transform: "translateX(-50%)" }}
-              animate={{ scale: isHovered ? 1.06 : 1, y: isHovered ? 10 : 6 }}
+              className="absolute right-1 top-1 -rotate-320 text-sm uppercase tracking-[0.25em] text-orange-100/80 md:right-2 md:top-2"
+              animate={{ scale: isHovered ? 1.06 : 1, y: 0 }}
               transition={{ duration: 0.25 }}
             >
               Mars
             </motion.span>
           </motion.div>
+
+          <div className="relative z-10 order-2 w-full max-w-lg -mt-6 rounded-xl border border-orange-400/60 bg-slate-900/70 p-6 text-white backdrop-blur md:order-1 md:static md:mt-0 md:translate-y-0">
+            <h2 className="text-2xl font-bold text-orange-300">
+              {activeTrack ? activeTrack.title : "Click a track to learn more"}
+            </h2>
+            <p className="mt-3 text-base text-orange-50/90">
+              {activeTrack
+                ? activeTrack.description
+                : "Click on a track to learn more about it!"}
+            </p>
+          </div>
         </div>
       </div>
     </section>
