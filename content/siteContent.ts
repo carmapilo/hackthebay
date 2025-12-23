@@ -16,10 +16,6 @@ export const siteContent = {
     cta: "Apply Now",
     ctaHref: "#apply",
   },
-  mission: {
-    title: "Our Mission",
-    body: "To connect passionate students to Tampa Bay's thriving innovation and technology industry.",
-  },
   about: {
     title: "About",
     body: "We want you to have an opportunity to make a difference. Hack the Bay is Tampa’s largest upcoming hackathon, bringing together 600 of the most talented and diverse tech students from Tampa! This year’s event will take place from Saturday, Feb 28 to Sunday Mar 1 at University of South Florida in Tampa, FL. Join us for the inaugural year of the hottest new tech event in Tampa!",
