@@ -16,6 +16,14 @@ html {
   background: #000000;
 }
 
+/* Use system cursor on interactive elements for accessibility */
+button:hover,
+button:active,
+a:hover,
+a:active {
+  cursor: pointer;
+}
+
 body {
   background: radial-gradient(
       circle at 20% 20%,

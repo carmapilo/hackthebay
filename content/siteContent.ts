@@ -26,7 +26,7 @@ export const siteContent = {
   },
   earth: {
     heading: "Where?",
-    body: "Where the hackathon takes place. Join us in Tampa, Florida for 24 hours of building, mentoring, and cosmic inspiration.",
+    body: "Join us at the University of South Florida in Tampa, Florida for 24 hours of building, mentoring, and cosmic inspiration.",
   },
   mars: {
     heading: "Pick Your Track",

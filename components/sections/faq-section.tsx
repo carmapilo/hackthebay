@@ -14,13 +14,13 @@ export function FAQSection() {
       className="relative flex min-h-screen w-full items-center justify-center overflow-visible px-6 py-12"
     >
       <div className="relative w-full max-w-6xl text-white">
-        <p className="mb-8 text-center text-4xl font-black uppercase tracking-[0.25em] text-cyan-200">
+        <p className="mb-12 text-center text-4xl font-black uppercase tracking-[0.25em] text-cyan-200">
           {siteContent.faq.heading}
         </p>
 
-        <div className="relative h-[520px] w-full">
+        <div className="flex w-full flex-col items-center justify-center gap-12 lg:flex-row lg:items-center lg:gap-60">
           {/* Neptune cluster */}
-          <div className="absolute left-[8%] top-[8%] flex flex-col items-center gap-3 text-center">
+          <div className="flex flex-col items-center gap-3 text-center">
             <div className="relative h-72 w-72 p-3">
               <div className="absolute inset-0 rounded-full bg-linear-to-br from-blue-400 via-blue-600 to-blue-800" />
               {faqs.map((faq, index) => {
@@ -28,8 +28,8 @@ export function FAQSection() {
                 const radius = 140;
                 // First moon at 9 o'clock (180°), evenly spaced around 360°
                 const angle = 180 + (index * 360) / count;
-                const x = Math.cos((angle * Math.PI) / 180) * radius;
-                const y = Math.sin((angle * Math.PI) / 180) * radius;
+                const x = Math.cos((angle * Math.PI) / 180) * radius - 40;
+                const y = Math.sin((angle * Math.PI) / 180) * radius - 40;
 
                 const isActive = selectedFAQ === index;
 
@@ -43,8 +43,8 @@ export function FAQSection() {
                         : "bg-gray-300 text-black"
                     }`}
                     style={{
-                      left: "35%",
-                      top: "35%",
+                      left: "50%",
+                      top: "50%",
                       transformOrigin: "center",
                     }}
                     initial={{ x, y }}
@@ -63,7 +63,7 @@ export function FAQSection() {
           </div>
 
           {/* Uranus answer */}
-          <div className="absolute right-[8%] bottom-[8%] flex flex-col items-center gap-3 text-center">
+          <div className="flex flex-col items-center gap-3 text-center">
             <motion.div
               key={selectedFAQ}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -73,12 +73,12 @@ export function FAQSection() {
             >
               <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.2),transparent_45%)]" />
               <div className="relative flex h-full w-full flex-col items-center justify-center gap-3 px-4 text-center text-white">
-                <p className="text-sm uppercase tracking-[0.2em] text-cyan-100">
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-100">
                   Answer
                 </p>
-                <h3 className="text-lg font-bold text-cyan-50">
+                {/* <h3 className="text-lg font-bold text-cyan-50">
                   {faqs[selectedFAQ].question}
-                </h3>
+                </h3> */}
                 <p className="text-sm text-cyan-50/90">
                   {faqs[selectedFAQ].answer}
                 </p>
