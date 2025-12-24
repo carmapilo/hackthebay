@@ -4,6 +4,14 @@ export type Track = {
   description: string;
 };
 
+export type SponsorTier = "platinum" | "gold" | "silver" | "bronze";
+
+export type Sponsor = {
+  name: string;
+  tier: SponsorTier;
+  logo?: string;
+};
+
 export type FAQ = {
   question: string;
   answer: string;
@@ -86,6 +94,41 @@ export const siteContent = {
     body: "Secure your spot at Hack The Bay. Limited seats for in-person teams in Tampa.",
     button: "Apply Now",
     buttonHref: "https://example.com/apply",
+  },
+  sponsors: {
+    heading: "Sponsors",
+    tiers: [
+      {
+        tier: "platinum",
+        sponsors: [
+          { name: "Starlight Labs", tier: "platinum", logo: "/icons/logo.jpg" },
+        ],
+      },
+      {
+        tier: "gold",
+        sponsors: [
+          { name: "BayWave AI", tier: "gold" },
+          { name: "Sunrise Systems", tier: "gold" },
+        ],
+      },
+      {
+        tier: "silver",
+        sponsors: [
+          { name: "Harbor Cloud", tier: "silver" },
+          { name: "Pelican Pay", tier: "silver" },
+          { name: "Coastline Robotics", tier: "silver" },
+        ],
+      },
+      {
+        tier: "bronze",
+        sponsors: [
+          { name: "GulfTech", tier: "bronze" },
+          { name: "Tide Analytics", tier: "bronze" },
+          { name: "Mangrove Data", tier: "bronze" },
+          { name: "Seabreeze Apps", tier: "bronze" },
+        ],
+      },
+    ] as { tier: SponsorTier; sponsors: Sponsor[] }[],
   },
 };
 

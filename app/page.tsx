@@ -5,6 +5,8 @@ import { HeroSection } from "@/components/sections/hero-section";
 import { MarsSection } from "@/components/sections/mars-section";
 import { AboutSection } from "@/components/sections/about-section";
 import { Starfield } from "@/components/starfield";
+import { SponsorSection } from "@/components/sections/sponsor-section";
+import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 
 export default function Home() {
@@ -21,8 +23,10 @@ export default function Home() {
         <EarthSection />
         <MarsSection />
         <FAQSection />
+        <SponsorSection />
         <CTASection />
       </main>
+      <Footer />
     </div>
   );
 }

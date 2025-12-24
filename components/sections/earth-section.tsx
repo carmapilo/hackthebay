@@ -80,10 +80,7 @@ export function EarthSection() {
               </span>
             </div>
 
-            <div className="mb-4 flex flex-wrap items-center gap-3 pt-6 items-center justify-center">
-              {/* <span className="rounded border border-cyan-300/50 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-100">
-                Countdown
-              </span> */}
+            <div className="mb-4 flex flex-wrap items-center justify-center gap-3 pt-6">
               <div className="flex items-center gap-2 rounded border border-cyan-300/40 bg-white/5 px-3 py-2 text-sm font-bold text-cyan-50">
                 {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m{" "}
                 {timeLeft.seconds}s
