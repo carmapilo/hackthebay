@@ -8,14 +8,14 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative flex min-h-[70vh] w-full items-center justify-center overflow-visible px-6 pb-4"
+      className="relative flex min-h-[70vh] w-full items-center justify-center overflow-visible px-6 p-4"
     >
       <div className="relative flex w-full max-w-6xl flex-col items-center justify-center gap-10 text-center">
         <p className="text-4xl font-black uppercase tracking-[0.25em] text-cyan-200">
           {about.title}
         </p>
 
-        <div className="relative flex w-full flex-col items-center justify-center gap-8 md:flex-row md:items-center md:justify-between">
+        <div className="relative flex w-full flex-col items-center justify-center gap-8 md:flex-row md:items-center">
           {/* Mercury - top */}
           <div className="relative flex flex-col items-center gap-2 md:-translate-y-4">
             <div className="relative h-24 w-24 shrink-0 rounded-full bg-linear-to-br from-slate-300 via-gray-400 to-slate-500 shadow-[0_0_30px_8px_rgba(200,200,200,0.15)]">

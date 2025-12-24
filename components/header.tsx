@@ -97,7 +97,7 @@ export function Header() {
           onClick={() => setOpen(false)}
           aria-label="Close menu"
         >
-          ✕
+          <img src="/icons/x.svg" alt="Close" className="h-5 w-5" />
         </button>
         <div className="mt-6 flex flex-col gap-4 text-sm font-semibold uppercase tracking-[0.18em]">
           {links.map((link) => (
