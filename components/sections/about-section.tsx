@@ -8,7 +8,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative flex min-h-[70vh] w-full items-center justify-center overflow-visible px-6 py-4"
+      className="relative flex min-h-[70vh] w-full items-center justify-center overflow-visible px-6 pb-4"
     >
       <div className="relative flex w-full max-w-6xl flex-col items-center justify-center gap-10 text-center">
         <p className="text-4xl font-black uppercase tracking-[0.25em] text-cyan-200">

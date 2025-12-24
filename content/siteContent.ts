@@ -12,7 +12,7 @@ export type FAQ = {
 export const siteContent = {
   hero: {
     title: "Hack The Bay",
-    subtitle: "Tampa's space-themed hackathon for builders and dreamers.",
+    subtitle: "Tampa’s largest student hackathon",
     cta: "Apply Now",
     ctaHref: "#apply",
   },

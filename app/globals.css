@@ -14,6 +14,7 @@
 html {
   cursor: url("/cursor.svg") 12 3, auto;
   background: #000000;
+  scroll-behavior: smooth;
 }
 
 /* Use system cursor on interactive elements for accessibility */

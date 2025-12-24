@@ -5,7 +5,7 @@ import { useState } from "react";
 import { siteContent } from "@/content/siteContent";
 
 export function EarthSection() {
-  const { heading, body } = siteContent.earth;
+  const { body } = siteContent.earth;
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -48,7 +48,6 @@ export function EarthSection() {
           </motion.div>
 
           <div className="relative z-10 w-full max-w-lg -mt-6 rounded-xl border border-cyan-400/60 bg-slate-900/70 p-6 text-white backdrop-blur md:static md:mt-0 md:translate-y-0">
-            <h2 className="text-2xl font-bold text-cyan-300">{heading}</h2>
             <p className="mt-3 text-base text-cyan-100/90">{body}</p>
             <div className="mt-6 grid grid-cols-2 gap-3 text-xs uppercase tracking-[0.18em] text-cyan-200/80">
               <span className="rounded border border-cyan-300/40 px-3 py-2 text-center">
