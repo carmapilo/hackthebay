@@ -43,8 +43,14 @@ export function MarsSection() {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            <div className="absolute inset-0 overflow-hidden rounded-full bg-linear-to-br from-red-500 via-orange-600 to-red-700" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.15),transparent_45%)]" />
+            <div className="absolute inset-0 overflow-hidden rounded-full">
+              <Image
+                src={siteContent.assets.mars}
+                alt="Mars"
+                fill
+                className="object-cover"
+              />
+            </div>
 
             <div className="relative z-10 h-full w-full">
               {tracks.map((track, index) => {

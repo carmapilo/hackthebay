@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { siteContent } from "@/content/siteContent";
 
 export function AboutSection() {
   const { about } = siteContent;
+  const venusSrc = siteContent.assets.venus;
 
   return (
     <section
@@ -37,7 +39,15 @@ export function AboutSection() {
 
           {/* Venus - bottom */}
           <div className="relative flex flex-col items-center gap-2 md:translate-y-4">
-            <div className="relative h-24 w-24 shrink-0 rounded-full bg-linear-to-br from-amber-300 via-orange-500 to-pink-500 shadow-[0_0_40px_10px_rgba(255,165,0,0.18)]">
+            <div className="relative h-24 w-24 shrink-0 rounded-full shadow-[0_0_40px_10px_rgba(255,165,0,0.18)]">
+              <div className="absolute inset-0 overflow-hidden rounded-full">
+                <Image
+                  src={venusSrc}
+                  alt="Venus"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <span className="absolute left-[-20px] top-[-20px] -rotate-30 text-[10px] uppercase tracking-[0.25em] text-cyan-100/90">
                 Venus
               </span>

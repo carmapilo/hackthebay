@@ -18,9 +18,14 @@ export type FAQ = {
 };
 
 export const siteContent = {
+  assets: {
+    sun: "/assets/sun.webp",
+    venus: "/assets/venus.webp",
+    mars: "/assets/mars.webp",
+  },
   hero: {
     title: "Hack The Bay",
-    subtitle: "Tampa’s largest student hackathon",
+    subtitle: "Tampa's largest student hackathon",
     cta: "Apply Now",
     ctaHref: "#apply",
   },
