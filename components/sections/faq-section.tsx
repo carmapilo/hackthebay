@@ -21,9 +21,9 @@ export function FAQSection() {
         <div className="flex w-full flex-col items-center justify-center gap-12 lg:flex-row lg:items-center lg:gap-60">
           {/* Neptune cluster */}
           <div className="flex flex-col items-center gap-3 text-center">
-            <div className="relative h-72 w-72 p-3">
+            <div className="relative h-60 w-60 p-3">
               <div className="absolute inset-0 rounded-full bg-linear-to-br from-blue-400 via-blue-600 to-blue-800" />
-              <span className="absolute left-1 top-1 -rotate-45 text-[10px] uppercase tracking-[0.25em] text-cyan-100/90">
+              <span className="absolute left-0 top-0 -rotate-45 text-[10px] uppercase tracking-[0.25em] text-cyan-100/90">
                 {siteContent.faq.neptune}
               </span>
               {faqs.map((faq, index) => {

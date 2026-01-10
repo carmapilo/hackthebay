@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { siteContent } from "@/content/siteContent";
 
-export function EarthSection() {
-  const { body, heading } = siteContent.earth;
+export function LocationSection() {
+  const { body, heading } = siteContent.location;
   const [isHovered, setIsHovered] = useState(false);
   const targetDate = useMemo(
     () => new Date("2026-02-28T09:00:00-05:00"), // update to your event start
@@ -31,7 +31,7 @@ export function EarthSection() {
 
   return (
     <section
-      id="earth"
+      id="location"
       className="relative flex min-h-screen w-full items-center justify-center overflow-visible px-6 py-12"
     >
       <div className="relative flex w-full max-w-6xl flex-col items-center justify-center gap-8 text-center md:text-left">

@@ -1,8 +1,9 @@
 import { CTASection } from "@/components/sections/cta-section";
-import { EarthSection } from "@/components/sections/earth-section";
+import { LocationSection } from "@/components/sections/location-section";
 import { FAQSection } from "@/components/sections/faq-section";
 import { HeroSection } from "@/components/sections/hero-section";
-import { MarsSection } from "@/components/sections/mars-section";
+import { SpeakersSection } from "@/components/sections/speakers-section";
+import { TracksSection } from "@/components/sections/tracks-section";
 import { AboutSection } from "@/components/sections/about-section";
 import { Starfield } from "@/components/starfield";
 import { SponsorSection } from "@/components/sections/sponsor-section";
@@ -20,8 +21,9 @@ export default function Home() {
       >
         <HeroSection />
         <AboutSection />
-        <EarthSection />
-        <MarsSection />
+        <LocationSection />
+        <SpeakersSection />
+        <TracksSection />
         <FAQSection />
         <SponsorSection />
         <CTASection />

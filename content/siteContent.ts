@@ -4,6 +4,15 @@ export type Track = {
   description: string;
 };
 
+export type Speaker = {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  bio: string;
+  image?: string;
+};
+
 export type SponsorTier = "platinum" | "gold" | "silver" | "bronze";
 
 export type Sponsor = {
@@ -33,11 +42,44 @@ export const siteContent = {
     title: "About",
     body: "We want you to have an opportunity to make a difference. Hack the Bay is Tampa’s largest upcoming hackathon, bringing together 600 of the most talented and diverse tech students from Tampa! This year’s event will take place from Saturday, Feb 28 to Sunday Mar 1 at University of South Florida in Tampa, FL. Join us for the inaugural year of the hottest new tech event in Tampa!",
   },
-  earth: {
+  location: {
     heading: "Where?",
     body: "Join us at the University of South Florida in Tampa, Florida for 24 hours of building, mentoring, and cosmic inspiration.",
   },
-  mars: {
+  speakers: {
+    heading: "Meet Our Speakers",
+    speakers: [
+      {
+        id: "speaker1",
+        name: "Dr. Sarah Chen",
+        role: "AI Research Lead",
+        company: "TechBay Labs",
+        bio: "Leading AI researcher with 10+ years of experience in machine learning and neural networks. Passionate about mentoring the next generation of tech innovators.",
+      },
+      {
+        id: "speaker2",
+        name: "Marcus Johnson",
+        role: "CTO",
+        company: "StartupBay",
+        bio: "Serial entrepreneur who has founded 3 successful startups. Expert in scaling tech products and building engineering teams.",
+      },
+      {
+        id: "speaker3",
+        name: "Elena Rodriguez",
+        role: "Security Engineer",
+        company: "CyberShield Inc",
+        bio: "Cybersecurity expert specializing in ethical hacking and threat detection. Speaker at DEF CON and Black Hat conferences.",
+      },
+      {
+        id: "speaker4",
+        name: "James Wu",
+        role: "Product Manager",
+        company: "BigTech Corp",
+        bio: "Product leader with experience shipping products used by millions. Advocate for user-centered design and agile methodologies.",
+      },
+    ] satisfies Speaker[],
+  },
+  tracks: {
     heading: "Pick Your Track",
     tracks: [
       {
@@ -71,6 +113,10 @@ export const siteContent = {
           "Protect the bay with climate, energy, and environmental tech—data, sensors, and smart insights.",
       },
     ] satisfies Track[],
+  },
+  // Jupiter placeholder - add jupiter.webp to assets when available
+  jupiter: {
+    placeholder: true,
   },
   faq: {
     heading: "Frequently Asked Questions",
