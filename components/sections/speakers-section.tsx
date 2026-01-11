@@ -6,7 +6,10 @@ import { useMemo, useState } from "react";
 import { siteContent, type Speaker } from "@/content/siteContent";
 
 export function SpeakersSection() {
-  const speakers = useMemo(() => siteContent.speakers.speakers, []);
+  const speakers = useMemo(
+    () => siteContent.speakers.speakers as Speaker[],
+    []
+  );
   const [isHovered, setIsHovered] = useState(false);
   const [selectedSpeaker, setSelectedSpeaker] = useState<string>(
     speakers[0]?.id ?? ""
@@ -85,7 +88,7 @@ export function SpeakersSection() {
                     {isActive && (
                       <span className="absolute inset-0 -z-10 rounded-full bg-yellow-300/60 blur-sm" />
                     )}
-                    {speaker.image ? (
+                    {speaker.image && speaker.image.length > 0 ? (
                       <Image
                         src={speaker.image}
                         alt={speaker.name}
