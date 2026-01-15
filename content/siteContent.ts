@@ -29,8 +29,26 @@ export type FAQ = {
 export const siteContent = {
   assets: {
     sun: "/assets/sun.webp",
+    mercury: "/assets/mercury.webp",
     venus: "/assets/venus.webp",
+    earth: "/assets/earth.webp",
     mars: "/assets/mars.webp",
+    jupiter: "/assets/jupiter.webp",
+    jupiterMoons: {
+      io: "/assets/jupitermoon1.webp",
+      europa: "/assets/jupitermoon2-europa.webp",
+      ganymede: "/assets/jupitermoon3-ganymede.webp",
+      callisto: "/assets/jupitermoon4-callisto.webp",
+      moon5: "/assets/jupitermoon5.webp",
+    },
+    saturn: "/assets/saturn.webp",
+    uranus: "/assets/uranus.webp",
+    neptune: "/assets/neptune.webp",
+    neptuneMoons: {
+      moon1: "/assets/neptunemoon1.webp",
+      moon2: "/assets/neptunemoon2.webp",
+      moon3: "/assets/neptunemoon3.webp",
+    },
   },
   hero: {
     title: "Hack The Bay",
@@ -113,10 +131,6 @@ export const siteContent = {
           "Protect the bay with climate, energy, and environmental tech—data, sensors, and smart insights.",
       },
     ] satisfies Track[],
-  },
-  // Jupiter placeholder - add jupiter.webp to assets when available
-  jupiter: {
-    placeholder: true,
   },
   faq: {
     heading: "Frequently Asked Questions",

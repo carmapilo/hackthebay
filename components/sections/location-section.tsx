@@ -1,11 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { siteContent } from "@/content/siteContent";
 
 export function LocationSection() {
   const { body, heading } = siteContent.location;
+  const earthSrc = siteContent.assets.earth;
   const [isHovered, setIsHovered] = useState(false);
   const targetDate = useMemo(
     () => new Date("2026-02-28T09:00:00-05:00"), // update to your event start
@@ -50,13 +52,17 @@ export function LocationSection() {
             onMouseLeave={() => setIsHovered(false)}
           >
             <div className="absolute inset-0 overflow-hidden rounded-full">
-              <div className="h-full w-full rounded-full bg-linear-to-br from-green-300 via-green-500 to-green-700" />
+              <Image
+                src={earthSrc}
+                alt="Earth"
+                fill
+                className="object-cover"
+              />
               <motion.div
-                className="absolute inset-0 rounded-full bg-white/25"
-                animate={{ opacity: isHovered ? 0 : 0.25 }}
+                className="absolute inset-0 rounded-full bg-white/20"
+                animate={{ opacity: isHovered ? 0 : 0.2 }}
                 transition={{ duration: 0.25 }}
               />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.25),transparent_45%)]" />
             </div>
 
             <motion.span

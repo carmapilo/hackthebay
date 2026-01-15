@@ -5,10 +5,9 @@ import { useState } from "react";
 
 const links = [
   { href: "#about", label: "About" },
-  //   { href: "#earth", label: "Where" },
+  { href: "#location", label: "Where" },
   { href: "#speakers", label: "Speakers" },
-  { href: "#mars", label: "Tracks" },
-  { href: "#schedule", label: "Schedule" },
+  { href: "#tracks", label: "Tracks" },
   { href: "#faq", label: "FAQ" },
   { href: "#sponsors", label: "Sponsors" },
   { href: "#apply", label: "Apply" },
@@ -19,9 +18,14 @@ export function Header() {
 
   return (
     <header
-      className={`fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur transition-transform duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-transform duration-300 ${
         open ? "-translate-y-full" : "translate-y-0"
       }`}
+      style={{
+        background:
+          "linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0.4) 90%, transparent 100%)",
+        backdropFilter: "blur(12px)",
+      }}
     >
       {!open && (
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 text-white">

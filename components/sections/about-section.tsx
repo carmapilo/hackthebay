@@ -4,8 +4,7 @@ import Image from "next/image";
 import { siteContent } from "@/content/siteContent";
 
 export function AboutSection() {
-  const { about } = siteContent;
-  const venusSrc = siteContent.assets.venus;
+  const { about, assets } = siteContent;
 
   return (
     <section
@@ -19,8 +18,16 @@ export function AboutSection() {
 
         <div className="relative flex w-full flex-col items-center justify-center gap-8 md:flex-row md:items-center">
           {/* Mercury - top */}
-          <div className="relative flex flex-col items-center gap-2 md:-translate-y-4">
-            <div className="relative h-24 w-24 shrink-0 rounded-full bg-linear-to-br from-slate-300 via-gray-400 to-slate-500 shadow-[0_0_30px_8px_rgba(200,200,200,0.15)]">
+          <div className="relative flex flex-col items-center gap-2 md:-translate-y-16">
+            <div className="relative h-30 w-30 shrink-0 rounded-full shadow-[0_0_30px_8px_rgba(200,200,200,0.15)]">
+              <div className="absolute inset-0 overflow-hidden rounded-full">
+                <Image
+                  src={assets.mercury}
+                  alt="Mercury"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <span className="absolute left-[-20px] top-[-20px] -rotate-30 text-[10px] uppercase tracking-[0.25em] text-cyan-100/90">
                 Mercury
               </span>
@@ -38,11 +45,11 @@ export function AboutSection() {
           </div>
 
           {/* Venus - bottom */}
-          <div className="relative flex flex-col items-center gap-2 md:translate-y-4">
-            <div className="relative h-24 w-24 shrink-0 rounded-full shadow-[0_0_40px_10px_rgba(255,165,0,0.18)]">
+          <div className="relative flex flex-col items-center gap-2 md:translate-y-16">
+            <div className="relative h-30 w-30 shrink-0 rounded-full shadow-[0_0_40px_10px_rgba(255,165,0,0.18)]">
               <div className="absolute inset-0 overflow-hidden rounded-full">
                 <Image
-                  src={venusSrc}
+                  src={assets.venus}
                   alt="Venus"
                   fill
                   className="object-cover"

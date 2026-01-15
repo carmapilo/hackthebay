@@ -7,18 +7,20 @@ import { siteContent, type Track } from "@/content/siteContent";
 
 export function TracksSection() {
   const tracks = useMemo(() => siteContent.tracks.tracks, []);
+  const jupiterSrc = siteContent.assets.jupiter;
+  const jupiterMoons = siteContent.assets.jupiterMoons;
   const [isHovered, setIsHovered] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState<Track["id"]>("fintech");
   const activeTrack =
     tracks.find((track) => track.id === selectedTrack) ?? null;
 
-  // Track icons - update paths as needed
-  const trackIcons: Record<Track["id"], string> = {
-    fintech: "/tracks/fintech.png",
-    cybersecurity: "/tracks/cybersecurity.png",
-    automation: "/tracks/automation.png",
-    health: "/tracks/health.png",
-    sustainability: "/tracks/sustainability.png",
+  // Map tracks to Jupiter moons
+  const trackMoons: Record<Track["id"], string> = {
+    fintech: jupiterMoons.io,
+    cybersecurity: jupiterMoons.europa,
+    automation: jupiterMoons.ganymede,
+    health: jupiterMoons.callisto,
+    sustainability: jupiterMoons.moon5,
   };
 
   return (
@@ -43,49 +45,26 @@ export function TracksSection() {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            {/* Jupiter gradient placeholder - replace with image when available */}
             <div className="absolute inset-0 overflow-hidden rounded-full">
-              <div
-                className="h-full w-full rounded-full"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #d4a574 0%, #c4956a 20%, #e8c4a0 35%, #b8825a 50%, #d4a574 65%, #a07050 80%, #c4956a 100%)",
-                  boxShadow: "inset -20px -20px 60px rgba(0,0,0,0.3)",
-                }}
+              <Image
+                src={jupiterSrc}
+                alt="Jupiter"
+                fill
+                className="object-cover"
               />
-              {/* Jupiter bands */}
-              <div
-                className="absolute inset-0 rounded-full opacity-40"
-                style={{
-                  background:
-                    "repeating-linear-gradient(0deg, transparent 0%, rgba(139,90,43,0.3) 8%, transparent 12%, rgba(210,160,110,0.2) 18%, transparent 22%)",
-                }}
-              />
-              {/* Great Red Spot hint */}
-              <div
-                className="absolute rounded-full bg-red-700/40"
-                style={{
-                  width: "20%",
-                  height: "12%",
-                  top: "45%",
-                  left: "25%",
-                  filter: "blur(4px)",
-                }}
-              />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.15),transparent_45%)]" />
             </div>
 
-            {/* Track buttons on the planet */}
+            {/* Track moon buttons orbiting the planet */}
             <div className="relative z-10 h-full w-full">
               {tracks.map((track, index) => {
                 const count = Math.max(tracks.length, 1);
-                const radius = 100;
+                const radius = 150;
                 const angle = -90 + (index * 360) / count;
                 const x = Math.cos((angle * Math.PI) / 180) * radius - 25;
                 const y = Math.sin((angle * Math.PI) / 180) * radius - 25;
 
                 const isActive = selectedTrack === track.id;
-                const iconSrc = trackIcons[track.id];
+                const moonSrc = trackMoons[track.id];
 
                 return (
                   <motion.button
@@ -94,35 +73,28 @@ export function TracksSection() {
                       event.stopPropagation();
                       setSelectedTrack(track.id);
                     }}
-                    className="absolute flex h-16 w-16 items-center justify-center transition"
+                    className="absolute flex h-20 w-20 items-center justify-center overflow-hidden rounded-full transition"
                     style={{
-                      left: "50%",
-                      top: "50%",
+                      left: "47%",
+                      top: "47%",
                       transform: "translate(-50%, -50%)",
                     }}
                     initial={{ x, y }}
-                    animate={{ x, y, scale: isActive ? 1.3 : 1 }}
+                    animate={{ x, y, scale: isActive ? 1.4 : 1 }}
                     whileHover={{ scale: 1.3, x, y }}
                     whileTap={{ scale: 0.98, x, y }}
                     aria-label={track.title}
                   >
                     {isActive && (
-                      <span className="absolute inset-0 -z-10 rounded-full bg-amber-300/60 blur-sm" />
+                      <span className="absolute inset-[-4px] -z-10 rounded-full bg-amber-300/70 blur-md" />
                     )}
-                    {iconSrc ? (
-                      <Image
-                        src={iconSrc}
-                        alt={track.title}
-                        width={80}
-                        height={80}
-                        className="object-contain"
-                        priority={index === 0}
-                      />
-                    ) : (
-                      <span className="text-xs font-bold text-white">
-                        {index + 1}
-                      </span>
-                    )}
+                    <Image
+                      src={moonSrc}
+                      alt={track.title}
+                      fill
+                      className="object-cover"
+                      priority={index === 0}
+                    />
                   </motion.button>
                 );
               })}

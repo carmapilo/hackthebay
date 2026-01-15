@@ -12,9 +12,9 @@ export function HeroSection() {
     <section className="relative flex h-screen w-full items-center justify-center overflow-hidden px-6">
       {/* SUN: Adjust size with w-[X] h-[X], position with top. Negative top = higher up */}
       <motion.div
-        className="absolute h-[70rem] w-[70rem]"
+        className="absolute h-[90rem] w-[90rem]"
         style={{
-          top: "-26rem",
+          top: "-30rem",
           transform: "translateX(-50%)",
           filter:
             "drop-shadow(0 0 80px rgba(255, 215, 0, 0.4)) drop-shadow(0 0 150px rgba(255, 165, 0, 0.3))",
