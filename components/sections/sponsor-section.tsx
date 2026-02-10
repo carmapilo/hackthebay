@@ -5,12 +5,22 @@ import { siteContent } from "@/content/siteContent";
 
 export function SponsorSection() {
   const { heading, sponsors } = siteContent.sponsors;
+  const asteroidField = siteContent.assets.asteroidField;
 
   return (
     <section
       id="sponsors"
       className="relative flex w-full items-center justify-center overflow-visible px-6 py-16"
     >
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <Image
+          src={asteroidField}
+          alt="Asteroid field"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+      </div>
       <div className="relative flex w-full max-w-6xl flex-col items-center gap-10 text-center md:text-left">
         <p className="w-full text-center text-4xl font-black uppercase tracking-[0.25em] text-cyan-200">
           {heading}
@@ -36,7 +46,7 @@ export function SponsorSection() {
                   )}
                 </div>
               </div>
-              <span className="mt-4 text-sm font-semibold uppercase tracking-[0.28em] text-cyan-100/90">
+              <span className="mt-4 rounded-full border border-cyan-300/40 bg-black/70 px-4 py-2 text-sm font-semibold uppercase tracking-[0.28em] text-cyan-100/95 shadow-[0_0_18px_rgba(34,211,238,0.2)]">
                 {sponsor.name}
               </span>
             </div>

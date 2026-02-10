@@ -10,8 +10,12 @@ import { SponsorSection } from "@/components/sections/sponsor-section";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { ScheduleSection } from "@/components/sections/schedule-section";
+import Image from "next/image";
+import { siteContent } from "@/content/siteContent";
 
 export default function Home() {
+  const { asteroidCluster1, asteroidCluster2 } = siteContent.assets;
+
   return (
     <div className="relative min-h-screen bg-black text-white">
       <Header />
@@ -22,11 +26,32 @@ export default function Home() {
       >
         <HeroSection />
         <AboutSection />
-        <LocationSection />
+        <div className="relative">
+          <LocationSection />
+          <div className="pointer-events-none absolute bottom-[-6rem] left-[10%] h-24 w-24 rotate-6 sm:h-36 sm:w-36 md:h-44 md:w-44">
+            <Image
+              src={asteroidCluster1}
+              alt=""
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
         <SpeakersSection />
-        <TracksSection />
+        <div className="relative">
+          <TracksSection />
+          <div className="pointer-events-none absolute right-[5%] bottom-[5%] h-28 w-28 -rotate-8 sm:h-40 sm:w-40 md:h-52 md:w-52">
+            <Image
+              src={asteroidCluster2}
+              alt=""
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
         <ScheduleSection />
         <FAQSection />
+
         <SponsorSection />
         <CTASection />
       </main>

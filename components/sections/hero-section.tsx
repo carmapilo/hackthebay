@@ -27,16 +27,6 @@ export function HeroSection() {
         <Image src={sunSrc} alt="" fill className="object-contain" priority />
       </motion.div>
 
-      {/* Dark vignette overlay for text contrast */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 30%, transparent 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 100%)",
-        }}
-        aria-hidden
-      />
-
       {/* Content */}
       <div className="relative z-10 max-w-3xl text-center pt-24">
         <motion.p

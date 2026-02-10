@@ -105,16 +105,14 @@ export function FAQSection() {
                 fill
                 className="object-contain"
               />
-              {/* Answer overlay with misty background */}
-              <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-3 px-30 text-center text-white">
-                <div className=" rounded-2xl border border-cyan-400/40 bg-linear-to-br from-cyan-900/60 via-blue-900/50 to-slate-900/60 p-6 backdrop-blur-[4px] shadow-xl">
-                  <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-100 mb-3">
-                    Answer
-                  </p>
-                  <p className="text-sm text-cyan-50 leading-relaxed">
-                    {faqs[selectedFAQ].answer}
-                  </p>
-                </div>
+              {/* Answer text without overlay */}
+              <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-3 px-30 text-center rotate-8">
+                <p className="text-lg font-black uppercase tracking-[0.2em] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)] [text-shadow:0_0_8px_rgba(0,0,0,0.9)]">
+                  Answer
+                </p>
+                <p className="text-md font-bold text-white leading-relaxed drop-shadow-[0_2px_14px_rgba(0,0,0,0.98)] [text-shadow:0_0_10px_rgba(0,0,0,0.95)]">
+                  {faqs[selectedFAQ].answer}
+                </p>
               </div>
               <span className="absolute left-4 top-4 -rotate-45 text-[10px] uppercase tracking-[0.25em] text-cyan-100/90 drop-shadow-lg">
                 {siteContent.faq.uranus}
