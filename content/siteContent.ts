@@ -13,17 +13,26 @@ export type Speaker = {
   image?: string;
 };
 
-export type SponsorTier = "platinum" | "gold" | "silver" | "bronze";
-
 export type Sponsor = {
   name: string;
-  tier: SponsorTier;
   logo?: string;
 };
 
 export type FAQ = {
   question: string;
   answer: string;
+};
+
+export type ScheduleItem = {
+  time: string;
+  title: string;
+  description: string;
+};
+
+export type ScheduleDay = {
+  label: string;
+  date: string;
+  items: ScheduleItem[];
 };
 
 export const siteContent = {
@@ -132,6 +141,65 @@ export const siteContent = {
       },
     ] satisfies Track[],
   },
+  schedule: {
+    heading: "Schedule",
+    subheading: "Mission Timeline",
+    planetName: "Saturn",
+    days: [
+      {
+        label: "Day 1",
+        date: "April 11",
+        items: [
+          {
+            time: "9:00 AM",
+            title: "Check-in + Breakfast",
+            description: "Badge pickup, coffee, and team matching begins.",
+          },
+          {
+            time: "11:00 AM",
+            title: "Opening Ceremony",
+            description: "Welcome, rules, and the first mission briefing.",
+          },
+          {
+            time: "12:00 PM",
+            title: "Hacking Starts",
+            description: "Build, ship, and launch with mentor support.",
+          },
+          {
+            time: "6:30 PM",
+            title: "Dinner + Workshops",
+            description: "Skill sprints on AI, security, and product design.",
+          },
+        ],
+      },
+      {
+        label: "Day 2",
+        date: "April 12",
+        items: [
+          {
+            time: "8:00 AM",
+            title: "Sunrise Snack",
+            description: "Recharge with light breakfast and stretch break.",
+          },
+          {
+            time: "10:30 AM",
+            title: "Hacking Ends",
+            description: "Submit projects and prep your demos.",
+          },
+          {
+            time: "12:00 PM",
+            title: "Demo Expo",
+            description: "Showcase projects to judges and partners.",
+          },
+          {
+            time: "2:00 PM",
+            title: "Awards + Closing",
+            description: "Winners announced and closing send-off.",
+          },
+        ],
+      },
+    ] satisfies ScheduleDay[],
+  },
   faq: {
     heading: "Frequently Asked Questions",
     neptune: "Neptune",
@@ -162,38 +230,12 @@ export const siteContent = {
   },
   sponsors: {
     heading: "Sponsors",
-    tiers: [
-      {
-        tier: "platinum",
-        sponsors: [
-          { name: "Starlight Labs", tier: "platinum", logo: "/icons/logo.jpg" },
-        ],
-      },
-      {
-        tier: "gold",
-        sponsors: [
-          { name: "BayWave AI", tier: "gold" },
-          { name: "Sunrise Systems", tier: "gold" },
-        ],
-      },
-      {
-        tier: "silver",
-        sponsors: [
-          { name: "Harbor Cloud", tier: "silver" },
-          { name: "Pelican Pay", tier: "silver" },
-          { name: "Coastline Robotics", tier: "silver" },
-        ],
-      },
-      {
-        tier: "bronze",
-        sponsors: [
-          { name: "GulfTech", tier: "bronze" },
-          { name: "Tide Analytics", tier: "bronze" },
-          { name: "Mangrove Data", tier: "bronze" },
-          { name: "Seabreeze Apps", tier: "bronze" },
-        ],
-      },
-    ] as { tier: SponsorTier; sponsors: Sponsor[] }[],
+    sponsors: [
+      { name: "Google", logo: "/sponsors/google.webp" },
+      { name: "Celcius", logo: "/sponsors/celcius.webp" },
+      { name: "9Yaps", logo: "/sponsors/9yaps.webp" },
+      { name: "Uber", logo: "/sponsors/uber.webp" },
+    ] satisfies Sponsor[],
   },
 };
 

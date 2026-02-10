@@ -12,7 +12,9 @@
 }
 
 html {
-  cursor: url("/cursor.svg") 12 3, auto;
+  cursor:
+    url("/cursor.svg") 12 3,
+    auto;
   background: #000000;
   scroll-behavior: smooth;
 }
@@ -26,7 +28,8 @@ a:active {
 }
 
 body {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at 20% 20%,
       rgba(0, 255, 255, 0.06),
       transparent 25%
@@ -34,9 +37,44 @@ body {
     radial-gradient(circle at 80% 0%, rgba(255, 215, 0, 0.05), transparent 20%),
     #000000;
   color: var(--foreground);
-  font-family: var(--font-orbitron), system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    var(--font-orbitron),
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   min-height: 100vh;
+}
+
+.space-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(251, 191, 36, 0.35) transparent;
+}
+
+.space-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.space-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.space-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(251, 191, 36, 0.35),
+    rgba(14, 116, 144, 0.35)
+  );
+  border-radius: 999px;
+}
+
+.space-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(251, 191, 36, 0.55),
+    rgba(14, 116, 144, 0.55)
+  );
 }
 
 a {

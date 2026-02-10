@@ -9,6 +9,7 @@ import { Starfield } from "@/components/starfield";
 import { SponsorSection } from "@/components/sections/sponsor-section";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { ScheduleSection } from "@/components/sections/schedule-section";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <LocationSection />
         <SpeakersSection />
         <TracksSection />
+        <ScheduleSection />
         <FAQSection />
         <SponsorSection />
         <CTASection />

@@ -49,7 +49,7 @@ export function HeroSection() {
               "0 0 20px rgba(255,200,50,0.9), 0 0 40px rgba(255,165,0,0.6), 0 2px 8px rgba(0,0,0,0.8)",
           }}
         >
-          Tampa, Florida • 24-Hour Build
+          Tampa, Florida • 12-Hour Build
         </motion.p>
 
         <motion.h1

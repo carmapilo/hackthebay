@@ -10,8 +10,8 @@ export function LocationSection() {
   const earthSrc = siteContent.assets.earth;
   const [isHovered, setIsHovered] = useState(false);
   const targetDate = useMemo(
-    () => new Date("2026-02-28T09:00:00-05:00"), // update to your event start
-    []
+    () => new Date("2026-04-11T09:00:00-05:00"), // update to your event start
+    [],
   );
 
   const computeTimeLeft = () => {
@@ -52,12 +52,7 @@ export function LocationSection() {
             onMouseLeave={() => setIsHovered(false)}
           >
             <div className="absolute inset-0 overflow-hidden rounded-full">
-              <Image
-                src={earthSrc}
-                alt="Earth"
-                fill
-                className="object-cover"
-              />
+              <Image src={earthSrc} alt="Earth" fill className="object-cover" />
               <motion.div
                 className="absolute inset-0 rounded-full bg-white/20"
                 animate={{ opacity: isHovered ? 0 : 0.2 }}
@@ -82,7 +77,7 @@ export function LocationSection() {
                 Tampa • FL
               </span>
               <span className="rounded border border-cyan-300/40 px-3 py-2 text-center">
-                Feb 28 - Mar 1
+                April 11 - 12
               </span>
             </div>
 

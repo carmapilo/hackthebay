@@ -1,20 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { siteContent, type SponsorTier } from "@/content/siteContent";
-
-const tierColors: Record<SponsorTier, string> = {
-  platinum:
-    "from-slate-200 via-slate-300 to-slate-500 shadow-[0_0_30px_8px_rgba(200,200,200,0.25)]",
-  gold: "from-amber-200 via-amber-300 to-amber-500 shadow-[0_0_30px_8px_rgba(255,193,7,0.25)]",
-  silver:
-    "from-zinc-200 via-zinc-300 to-zinc-500 shadow-[0_0_30px_8px_rgba(160,160,160,0.25)]",
-  bronze:
-    "from-orange-200 via-orange-400 to-amber-600 shadow-[0_0_30px_8px_rgba(255,140,0,0.25)]",
-};
+import { siteContent } from "@/content/siteContent";
 
 export function SponsorSection() {
-  const { heading, tiers } = siteContent.sponsors;
+  const { heading, sponsors } = siteContent.sponsors;
 
   return (
     <section
@@ -26,39 +16,29 @@ export function SponsorSection() {
           {heading}
         </p>
 
-        <div className="flex w-full flex-col gap-12">
-          {tiers.map((tierBlock) => (
-            <div
-              key={tierBlock.tier}
-              className="flex flex-col items-center gap-4"
-            >
-              <span className="text-sm font-bold uppercase tracking-[0.25em] text-cyan-100/80">
-                {tierBlock.tier}
-              </span>
-              <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                {tierBlock.sponsors.map((sponsor) => (
-                  <div
-                    key={sponsor.name}
-                    className={`relative flex h-30 w-30 items-center justify-center overflow-hidden rounded-full bg-linear-to-br ${
-                      tierColors[sponsor.tier]
-                    } px-3 md:h-36 md:w-36 md:px-4`}
-                  >
-                    {sponsor.logo && (
-                      <div className="relative h-12 w-12 md:h-14 md:w-14">
-                        <Image
-                          src={sponsor.logo}
-                          alt={sponsor.name}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                    )}
-                    <span className="absolute bottom-2 left-1 right-1 text-center text-[9px] font-semibold uppercase tracking-[0.12em] text-black drop-shadow md:text-[10px]">
-                      {sponsor.name}
-                    </span>
-                  </div>
-                ))}
+        <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {sponsors.map((sponsor) => (
+            <div key={sponsor.name} className="flex flex-col items-center">
+              <div className="group relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl border border-cyan-400/40 bg-linear-to-br from-slate-950/90 via-cyan-950/60 to-slate-950/90 shadow-[0_0_50px_rgba(34,211,238,0.18)]">
+                <div className="absolute inset-0 opacity-70 [background-image:radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.18)_0%,transparent_45%),radial-gradient(circle_at_80%_0%,rgba(251,191,36,0.12)_0%,transparent_35%),linear-gradient(90deg,rgba(34,211,238,0.08)_1px,transparent_1px),linear-gradient(0deg,rgba(34,211,238,0.08)_1px,transparent_1px)] [background-size:100%_100%,100%_100%,32px_32px,32px_32px]" />
+                <div className="absolute -left-10 top-1/2 h-48 w-48 -translate-y-1/2 rounded-full bg-cyan-400/15 blur-3xl" />
+                <div className="absolute -right-10 top-8 h-32 w-32 rounded-full bg-amber-300/15 blur-3xl" />
+                <div className="relative z-10 flex h-[72%] w-[72%] items-center justify-center rounded-xl bg-white shadow-[0_0_30px_rgba(255,255,255,0.25)]">
+                  {sponsor.logo && (
+                    <div className="relative h-[82%] w-[82%]">
+                      <Image
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        fill
+                        className="object-contain"
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
+              <span className="mt-4 text-sm font-semibold uppercase tracking-[0.28em] text-cyan-100/90">
+                {sponsor.name}
+              </span>
             </div>
           ))}
         </div>

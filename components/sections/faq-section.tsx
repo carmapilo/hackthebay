@@ -44,7 +44,7 @@ export function FAQSection() {
               </span>
               {faqs.map((faq, index) => {
                 const count = Math.max(faqs.length, 1);
-                const radius = 130;
+                const radius = 170;
                 // First moon at 9 o'clock (180°), evenly spaced around 360°
                 const angle = 180 + (index * 360) / count;
                 const x = Math.cos((angle * Math.PI) / 180) * radius - 28;
@@ -59,8 +59,8 @@ export function FAQSection() {
                     onClick={() => setSelectedFAQ(index)}
                     className="absolute flex h-18 w-18 items-center justify-center overflow-hidden rounded-full transition"
                     style={{
-                      left: "50%",
-                      top: "50%",
+                      left: "48%",
+                      top: "48%",
                       transformOrigin: "center",
                     }}
                     initial={{ x, y }}

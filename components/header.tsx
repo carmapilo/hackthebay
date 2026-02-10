@@ -6,9 +6,10 @@ import { useState } from "react";
 const links = [
   { href: "#about", label: "About" },
   { href: "#location", label: "Where" },
-  { href: "#speakers", label: "Speakers" },
+  // { href: "#speakers", label: "Speakers" },
   { href: "#tracks", label: "Tracks" },
-  { href: "#faq", label: "FAQ" },
+  { href: "#schedule", label: "Schedule" },
+  // { href: "#faq", label: "FAQ" },
   { href: "#sponsors", label: "Sponsors" },
   { href: "#apply", label: "Apply" },
 ];
@@ -31,13 +32,13 @@ export function Header() {
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 text-white">
           <Link
             href="#hero"
-            className="text-sm font-bold uppercase tracking-[0.25em] rounded px-3 py-2 transition hover:bg-white/5 hover:text-cyan-200"
+            className="text-sm text-cyan-200 font-bold uppercase tracking-[0.25em] rounded px-3 py-2 transition hover:bg-white/5 hover:text-white"
           >
             Hack The Bay
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden items-center gap-4 text-xs font-semibold uppercase tracking-[0.18em] text-white md:flex">
+          <div className="hidden items-center justify-between gap-4 text-xs font-semibold uppercase tracking-[0.18em] text-white md:flex">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -47,34 +48,30 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <div className="flex items-center gap-3 text-white">
-              <Link
-                href="https://www.instagram.com/hackthebay2026/"
-                aria-label="Instagram"
-                className="rounded p-2 transition hover:bg-white/5 hover:text-cyan-200"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/icons/instagram.svg"
-                  alt="Instagram"
-                  className="h-5 w-5"
-                />
-              </Link>
-              <Link
-                href="#"
-                aria-label="Discord"
-                className="rounded p-2 transition hover:bg-white/5 hover:text-cyan-200"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/icons/discord.svg"
-                  alt="Discord"
-                  className="h-5 w-5"
-                />
-              </Link>
-            </div>
+          </div>
+          <div className="flex items-center gap-3 text-white">
+            <Link
+              href="https://www.instagram.com/hackthebay2026/"
+              aria-label="Instagram"
+              className="rounded p-2 transition hover:bg-white/5 hover:text-cyan-200"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="/icons/instagram.svg"
+                alt="Instagram"
+                className="h-5 w-5"
+              />
+            </Link>
+            <Link
+              href="#"
+              aria-label="Discord"
+              className="rounded p-2 transition hover:bg-white/5 hover:text-cyan-200"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="/icons/discord.svg" alt="Discord" className="h-5 w-5" />
+            </Link>
           </div>
 
           {/* Mobile hamburger */}
