@@ -8,11 +8,11 @@ import { siteContent, type Speaker } from "@/content/siteContent";
 export function SpeakersSection() {
   const speakers = useMemo(
     () => siteContent.speakers.speakers as Speaker[],
-    []
+    [],
   );
   const [isHovered, setIsHovered] = useState(false);
   const [selectedSpeaker, setSelectedSpeaker] = useState<string>(
-    speakers[0]?.id ?? ""
+    speakers[0]?.id ?? "",
   );
   const activeSpeaker =
     speakers.find((speaker) => speaker.id === selectedSpeaker) ?? null;
@@ -50,12 +50,9 @@ export function SpeakersSection() {
 
             {/* Speaker buttons on the planet */}
             <div className="relative z-10 h-full w-full">
-              {speakers.map((speaker, index) => {
-                const count = Math.max(speakers.length, 1);
-                const radius = 100;
-                const angle = -90 + (index * 360) / count;
-                const x = Math.cos((angle * Math.PI) / 180) * radius - 20;
-                const y = Math.sin((angle * Math.PI) / 180) * radius - 20;
+              {speakers.map((speaker) => {
+                const x = speaker.position?.x ?? 0;
+                const y = speaker.position?.y ?? 0;
 
                 const isActive = selectedSpeaker === speaker.id;
 

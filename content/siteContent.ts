@@ -11,6 +11,10 @@ export type Speaker = {
   company: string;
   bio: string;
   image?: string;
+  position?: {
+    x: number;
+    y: number;
+  };
 };
 
 export type Sponsor = {
@@ -85,6 +89,7 @@ export const siteContent = {
         role: "AI Research Lead",
         company: "TechBay Labs",
         bio: "Leading AI researcher with 10+ years of experience in machine learning and neural networks. Passionate about mentoring the next generation of tech innovators.",
+        position: { x: -130, y: -45 },
       },
       {
         id: "speaker2",
@@ -92,6 +97,7 @@ export const siteContent = {
         role: "CTO",
         company: "StartupBay",
         bio: "Serial entrepreneur who has founded 3 successful startups. Expert in scaling tech products and building engineering teams.",
+        position: { x: -100, y: 70 },
       },
       {
         id: "speaker3",
@@ -99,6 +105,7 @@ export const siteContent = {
         role: "Security Engineer",
         company: "CyberShield Inc",
         bio: "Cybersecurity expert specializing in ethical hacking and threat detection. Speaker at DEF CON and Black Hat conferences.",
+        position: { x: -15, y: 110 },
       },
       {
         id: "speaker4",
@@ -106,6 +113,7 @@ export const siteContent = {
         role: "Product Manager",
         company: "BigTech Corp",
         bio: "Product leader with experience shipping products used by millions. Advocate for user-centered design and agile methodologies.",
+        position: { x: 60, y: 30 },
       },
     ] satisfies Speaker[],
   },
