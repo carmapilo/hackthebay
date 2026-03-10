@@ -64,7 +64,7 @@ export function Header() {
               />
             </Link>
             <Link
-              href="#"
+              href="https://discord.gg/YGREE8saUm"
               aria-label="Discord"
               className="rounded p-2 transition hover:bg-white/5 hover:text-cyan-200"
               target="_blank"

@@ -10,7 +10,7 @@ export function LocationSection() {
   const earthSrc = siteContent.assets.earth;
   const [isHovered, setIsHovered] = useState(false);
   const targetDate = useMemo(
-    () => new Date("2026-04-11T09:00:00-05:00"), // update to your event start
+    () => new Date("2026-04-11T08:00:00"), // update to your event start
     [],
   );
 
@@ -77,7 +77,7 @@ export function LocationSection() {
                 Tampa • FL
               </span>
               <span className="rounded border border-cyan-300/40 px-3 py-2 text-center">
-                April 11 - 12
+                April 11
               </span>
             </div>
 

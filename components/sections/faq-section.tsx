@@ -57,7 +57,11 @@ export function FAQSection() {
                   <motion.button
                     key={faq.question}
                     onClick={() => setSelectedFAQ(index)}
-                    className="absolute flex h-18 w-18 items-center justify-center overflow-hidden rounded-full transition"
+                    className={`absolute flex h-26 w-26 items-center justify-center rounded-full transition ${
+                      isActive
+                        ? "ring-4 ring-cyan-400 ring-offset-2 ring-offset-black/80 shadow-[0_0_22px_5px_rgba(34,211,238,0.5)]"
+                        : ""
+                    }`}
                     style={{
                       left: "48%",
                       top: "48%",
@@ -69,18 +73,30 @@ export function FAQSection() {
                     aria-label={faq.question}
                   >
                     {isActive && (
-                      <span className="absolute inset-[-4px] -z-10 rounded-full bg-cyan-400/70 blur-md" />
+                      <span className="absolute inset-[-6px] -z-10 rounded-full bg-cyan-400/60 blur-md" />
                     )}
-                    <Image
-                      src={moonSrc}
-                      alt={`FAQ ${index + 1}`}
-                      fill
-                      className="object-cover"
-                    />
+                    <div className="relative h-full w-full overflow-hidden rounded-full">
+                      <Image
+                        src={moonSrc}
+                        alt={`FAQ ${index + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                     {/* FAQ question text overlay */}
-                    <div className="relative z-10 flex h-full w-full items-center justify-center p-2">
-                      <p className="text-[9px] font-bold text-center text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
-                        {faq.question}
+                    <div className="absolute inset-0 z-10 flex items-center justify-center p-3">
+                      <p className="text-[10px] font-bold text-center leading-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                        {faq.question === "How long is the hackathon?" ? (
+                          <>
+                            {"How long"}
+                            <br />
+                            {"is the"}
+                            <br />
+                            {"hackathon?"}
+                          </>
+                        ) : (
+                          faq.question
+                        )}
                       </p>
                     </div>
                   </motion.button>

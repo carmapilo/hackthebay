@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "framer-motion": "^12.23.26",
-    "next": "16.0.10",
+    "next": "^16.1.6",
     "react": "19.2.1",
     "react-dom": "19.2.1"
   },
@@ -19,8 +19,9 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.0.10",
+    "baseline-browser-mapping": "^2.10.0",
+    "eslint": "^10.0.0",
+    "eslint-config-next": "^0.2.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

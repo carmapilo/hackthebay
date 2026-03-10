@@ -9,8 +9,7 @@ export function ScheduleSection() {
   const { heading, subheading, days, planetName } = siteContent.schedule;
   const saturnSrc = siteContent.assets.saturn;
   const [isHovered, setIsHovered] = useState(false);
-  const [selectedDay, setSelectedDay] = useState(0);
-  const activeDay = days[selectedDay] ?? days[0];
+  const activeDay = days[0];
 
   return (
     <section
@@ -28,23 +27,6 @@ export function ScheduleSection() {
         <div className="relative flex w-full flex-col items-center justify-center gap-8 md:flex-row md:items-center">
           {/* Schedule modal - LEFT on desktop */}
           <div className="relative z-10 w-full max-w-2xl rounded-2xl border border-amber-400/50 bg-linear-to-br from-amber-950/60 via-slate-900/75 to-slate-950/70 p-6 text-white shadow-2xl backdrop-blur">
-            <div className="flex flex-wrap items-center justify-center gap-2 pb-4">
-              {days.map((day, index) => (
-                <button
-                  key={day.label}
-                  onClick={() => setSelectedDay(index)}
-                  className={`rounded-full border px-4 py-2 text-xs uppercase tracking-[0.2em] transition ${
-                    selectedDay === index
-                      ? "border-amber-200/80 bg-amber-200/10 text-amber-100"
-                      : "border-amber-200/30 bg-black/20 text-amber-100/60 hover:border-amber-200/60"
-                  }`}
-                  type="button"
-                >
-                  {day.label}
-                </button>
-              ))}
-            </div>
-
             <div className="rounded-xl border border-amber-400/30 bg-black/30 p-5">
               <div className="flex flex-col items-start gap-1 md:flex-row md:items-center md:justify-between">
                 <h3 className="text-lg font-bold text-amber-200">

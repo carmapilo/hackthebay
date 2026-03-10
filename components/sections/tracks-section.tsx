@@ -39,7 +39,7 @@ export function TracksSection() {
           <motion.div
             className="relative flex h-[26rem] w-[26rem] shrink-0 items-center justify-center md:h-[32rem] md:w-[32rem] lg:h-[32rem] lg:w-[38rem]"
             animate={{
-              scale: isHovered ? 1 : 1,
+              scale: isHovered ? 1.06 : 1,
             }}
             transition={{ duration: 0.25 }}
             onMouseEnter={() => setIsHovered(true)}
@@ -75,7 +75,11 @@ export function TracksSection() {
                       event.stopPropagation();
                       setSelectedTrack(track.id);
                     }}
-                    className="absolute flex h-20 w-20 items-center justify-center overflow-hidden rounded-full transition"
+                    className={`absolute flex h-20 w-20 items-center justify-center rounded-full transition ${
+                      isActive
+                        ? "ring-3 ring-amber-300 ring-offset-2 ring-offset-black/80 shadow-[0_0_18px_4px_rgba(251,191,36,0.45)]"
+                        : ""
+                    }`}
                     style={{
                       left: "48%",
                       top: "50%",
@@ -90,13 +94,21 @@ export function TracksSection() {
                     {isActive && (
                       <span className="absolute inset-[-4px] -z-10 rounded-full bg-amber-300/70 blur-md" />
                     )}
-                    <Image
-                      src={moonSrc}
-                      alt={track.title}
-                      fill
-                      className="object-cover"
-                      priority={index === 0}
-                    />
+                    <div className="relative h-full w-full overflow-hidden rounded-full">
+                      <Image
+                        src={moonSrc}
+                        alt={track.title}
+                        fill
+                        className="object-cover"
+                        priority={index === 0}
+                      />
+                    </div>
+                    {/* Track name label */}
+                    <div className="absolute inset-0 z-10 flex items-center justify-center">
+                      <span className="text-[8px] font-bold uppercase tracking-wider text-white text-center leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] [text-shadow:0_1px_6px_rgba(0,0,0,0.95)]">
+                        {track.title}
+                      </span>
+                    </div>
                   </motion.button>
                 );
               })}
@@ -112,15 +124,37 @@ export function TracksSection() {
           </motion.div>
 
           {/* Track Info Card - RIGHT on desktop */}
-          <div className="relative z-10 w-full max-w-md rounded-xl border border-amber-400/60 bg-slate-900/70 p-6 text-white backdrop-blur">
-            <h2 className="text-2xl font-bold text-amber-300">
-              {activeTrack ? activeTrack.title : "Click a track to learn more"}
-            </h2>
-            <p className="mt-3 text-base text-amber-50/90">
-              {activeTrack
-                ? activeTrack.description
-                : "Click on a track to learn more about it!"}
-            </p>
+          <div className="relative z-10 w-full max-w-md">
+            {/* Track selector dropdown */}
+            <div className="relative mb-0">
+              <select
+                value={selectedTrack}
+                onChange={(e) =>
+                  setSelectedTrack(e.target.value as Track["id"])
+                }
+                className="w-full cursor-pointer appearance-none rounded-t-xl border border-amber-400/60 bg-slate-900/90 px-4 py-3 text-sm font-semibold uppercase tracking-wider text-amber-300 backdrop-blur outline-none transition hover:border-amber-300"
+              >
+                {tracks.map((track) => (
+                  <option
+                    key={track.id}
+                    value={track.id}
+                    className="bg-slate-900 text-amber-300"
+                  >
+                    {track.title}
+                  </option>
+                ))}
+              </select>
+              <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-amber-300">
+                ▾
+              </span>
+            </div>
+            <div className="rounded-b-xl border border-t-0 border-amber-400/60 bg-slate-900/70 p-6 text-white backdrop-blur">
+              <p className="text-base text-amber-50/90">
+                {activeTrack
+                  ? activeTrack.description
+                  : "Click on a track to learn more about it!"}
+              </p>
+            </div>
           </div>
         </div>
       </div>

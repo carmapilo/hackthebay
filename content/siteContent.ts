@@ -68,17 +68,18 @@ export const siteContent = {
   },
   hero: {
     title: "Hack The Bay",
-    subtitle: "Tampa's largest student hackathon",
+    subtitle: "Launch",
+    tagline: "Tampa's largest student hackathon",
     cta: "Apply Now",
     ctaHref: "#apply",
   },
   about: {
     title: "About",
-    body: "We want you to have an opportunity to make a difference. Hack the Bay is Tampa’s largest upcoming hackathon, bringing together 600 of the most talented and diverse tech students from Tampa! This year’s event will take place from Saturday, Feb 28 to Sunday Mar 1 at University of South Florida in Tampa, FL. Join us for the inaugural year of the hottest new tech event in Tampa!",
+    body: "We want you to have an opportunity to make a difference. Hack the Bay is Tampa’s largest upcoming hackathon, bringing together 600 of the most talented and diverse tech students from Tampa! This year’s event will take place on Saturday, April 11 at University of South Florida in Tampa, FL. Join us for the inaugural year of the hottest new tech event in Tampa!",
   },
   location: {
     heading: "Where?",
-    body: "Join us at the University of South Florida in Tampa, Florida for 24 hours of building, mentoring, and cosmic inspiration.",
+    body: "Join us at the University of South Florida in Tampa, Florida for 12 hours of building, mentoring, and cosmic inspiration.",
   },
   speakers: {
     heading: "Meet Our Speakers",
@@ -158,54 +159,64 @@ export const siteContent = {
     planetName: "Saturn",
     days: [
       {
-        label: "Day 1",
-        date: "April 11",
-        items: [
-          {
-            time: "9:00 AM",
-            title: "Check-in + Breakfast",
-            description: "Badge pickup, coffee, and team matching begins.",
-          },
-          {
-            time: "11:00 AM",
-            title: "Opening Ceremony",
-            description: "Welcome, rules, and the first mission briefing.",
-          },
-          {
-            time: "12:00 PM",
-            title: "Hacking Starts",
-            description: "Build, ship, and launch with mentor support.",
-          },
-          {
-            time: "6:30 PM",
-            title: "Dinner + Workshops",
-            description: "Skill sprints on AI, security, and product design.",
-          },
-        ],
-      },
-      {
-        label: "Day 2",
-        date: "April 12",
+        label: "April 11",
+        date: "",
         items: [
           {
             time: "8:00 AM",
-            title: "Sunrise Snack",
-            description: "Recharge with light breakfast and stretch break.",
+            title: "Check-in begins",
+            description: "",
           },
           {
-            time: "10:30 AM",
-            title: "Hacking Ends",
-            description: "Submit projects and prep your demos.",
+            time: "9:00 AM",
+            title: "Team-Building Activity @ Atrium",
+            description: "",
           },
           {
-            time: "12:00 PM",
-            title: "Demo Expo",
-            description: "Showcase projects to judges and partners.",
+            time: "10:00 AM",
+            title: "Opening Ceremony",
+            description: "",
           },
           {
-            time: "2:00 PM",
-            title: "Awards + Closing",
-            description: "Winners announced and closing send-off.",
+            time: "11:00 AM",
+            title: "Hacking + CTF Tournament Begin",
+            description: "",
+          },
+          {
+            time: "11:00 AM",
+            title: "Lunch",
+            description: "",
+          },
+
+          {
+            time: "1:00 PM - 4:00 PM",
+            title: "Workshops & Social Events",
+            description: "",
+          },
+          {
+            time: "6:00 PM",
+            title: "Hacking + CTF Tournament Ends",
+            description: "",
+          },
+          {
+            time: "6:00 PM",
+            title: "Dinner",
+            description: "",
+          },
+          {
+            time: "7:00 PM",
+            title: "Judging Begins",
+            description: "",
+          },
+          {
+            time: "7:00 PM",
+            title: "Networking Hour",
+            description: "",
+          },
+          {
+            time: "9:00 PM",
+            title: "Closing Ceremony + Awards + Prizes",
+            description: "",
           },
         ],
       },
@@ -219,11 +230,11 @@ export const siteContent = {
       {
         question: "When does the hackathon start?",
         answer:
-          "Hack The Bay 2025 starts on March 15th at 9:00 AM in Tampa, FL.",
+          "Hack The Bay 2025 starts on March 15th at 8:00 AM at the University of South Florida.",
       },
       {
         question: "How long is the hackathon?",
-        answer: "The event runs for 24 hours, ending on March 16th at 9:00 AM.",
+        answer: "The event runs for 12 hours, ending at 9pm on April 11.",
       },
       {
         question: "Do I need experience?",
@@ -235,9 +246,9 @@ export const siteContent = {
   cta: {
     id: "apply",
     heading: "Launch Your Project",
-    body: "Secure your spot at Hack The Bay. Limited seats for in-person teams in Tampa.",
+    body: "Secure your spot at Hack The Bay: Launch",
     button: "Apply Now",
-    buttonHref: "https://example.com/apply",
+    buttonHref: "https://hackthebay.net",
   },
   sponsors: {
     heading: "Sponsors",
