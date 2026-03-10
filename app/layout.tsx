@@ -10,11 +10,12 @@ const orbitron = Orbitron({
 
 export const metadata: Metadata = {
   title: "Hack The Bay",
-  description: "Tampa's largest student hackathon - 2026 Space Edition",
+  description:
+    "Hack the Bay: Launch starts April 11, 2026. A 12-hour hackathon for student developers in Tampa, Florida.",
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "earth.svg",
+    shortcut: "earth.svg",
+    apple: "earth.svg",
   },
 };
 
