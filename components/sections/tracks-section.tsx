@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { siteContent, type Track } from "@/content/siteContent";
 
 export function TracksSection() {
@@ -10,9 +10,19 @@ export function TracksSection() {
   const jupiterSrc = siteContent.assets.jupiter;
   const jupiterMoons = siteContent.assets.jupiterMoons;
   const [isHovered, setIsHovered] = useState(false);
+  const [isDesktopViewport, setIsDesktopViewport] = useState(false);
   const [selectedTrack, setSelectedTrack] = useState<Track["id"]>("fintech");
   const activeTrack =
     tracks.find((track) => track.id === selectedTrack) ?? null;
+
+  useEffect(() => {
+    const media = window.matchMedia("(min-width: 768px)");
+    const handleChange = () => setIsDesktopViewport(media.matches);
+
+    handleChange();
+    media.addEventListener("change", handleChange);
+    return () => media.removeEventListener("change", handleChange);
+  }, []);
 
   // Map tracks to Jupiter moons
   const trackMoons: Record<Track["id"], string> = {
@@ -37,7 +47,7 @@ export function TracksSection() {
         <div className="relative flex w-full flex-col items-center justify-center gap-6 md:gap-10 md:flex-row md:items-center">
           {/* Jupiter Planet - LEFT on desktop */}
           <motion.div
-            className="relative flex h-[26rem] w-[26rem] shrink-0 items-center justify-center md:h-[32rem] md:w-[32rem] lg:h-[32rem] lg:w-[38rem]"
+            className="relative flex h-80 w-80 shrink-0 items-center justify-center md:h-128 md:w-lg lg:h-128 lg:w-152"
             animate={{
               scale: isHovered ? 1.06 : 1,
             }}
@@ -46,7 +56,7 @@ export function TracksSection() {
             onMouseLeave={() => setIsHovered(false)}
           >
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative h-60 w-60 overflow-hidden rounded-full md:h-72 md:w-72">
+              <div className="relative h-52 w-52 overflow-hidden rounded-full md:h-72 md:w-72">
                 <Image
                   src={jupiterSrc}
                   alt="Jupiter"
@@ -60,7 +70,7 @@ export function TracksSection() {
             <div className="relative z-10 h-full w-full">
               {tracks.map((track, index) => {
                 const count = Math.max(tracks.length, 1);
-                const radius = 220;
+                const radius = isDesktopViewport ? 220 : 150;
                 const angle = -90 + (index * 360) / count;
                 const x = Math.cos((angle * Math.PI) / 180) * radius - 25;
                 const y = Math.sin((angle * Math.PI) / 180) * radius - 25;
@@ -75,7 +85,7 @@ export function TracksSection() {
                       event.stopPropagation();
                       setSelectedTrack(track.id);
                     }}
-                    className={`absolute flex h-20 w-20 items-center justify-center rounded-full transition ${
+                    className={`absolute flex h-16 w-16 items-center justify-center rounded-full transition md:h-20 md:w-20 ${
                       isActive
                         ? "ring-3 ring-amber-300 ring-offset-2 ring-offset-black/80 shadow-[0_0_18px_4px_rgba(251,191,36,0.45)]"
                         : ""
@@ -92,7 +102,7 @@ export function TracksSection() {
                     aria-label={track.title}
                   >
                     {isActive && (
-                      <span className="absolute inset-[-4px] -z-10 rounded-full bg-amber-300/70 blur-md" />
+                      <span className="absolute -inset-1 -z-10 rounded-full bg-amber-300/70 blur-md" />
                     )}
                     <div className="relative h-full w-full overflow-hidden rounded-full">
                       <Image
@@ -105,7 +115,7 @@ export function TracksSection() {
                     </div>
                     {/* Track name label */}
                     <div className="absolute inset-0 z-10 flex items-center justify-center">
-                      <span className="text-[8px] font-bold uppercase tracking-wider text-white text-center leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] [text-shadow:0_1px_6px_rgba(0,0,0,0.95)]">
+                      <span className="text-[7px] leading-tight font-bold text-center uppercase tracking-wider text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] [text-shadow:0_1px_6px_rgba(0,0,0,0.95)] md:text-[8px]">
                         {track.title}
                       </span>
                     </div>

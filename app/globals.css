@@ -14,6 +14,7 @@
 html {
   background: #000000;
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 /* Use system cursor on interactive elements for accessibility */
@@ -34,6 +35,7 @@ body {
     radial-gradient(circle at 80% 0%, rgba(255, 215, 0, 0.05), transparent 20%),
     #000000;
   color: var(--foreground);
+  overflow-x: clip;
   font-family:
     var(--font-orbitron),
     system-ui,

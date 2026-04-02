@@ -6,15 +6,14 @@ export function HeroSection() {
   const sunSrc = siteContent.assets.sun;
 
   return (
-    <section className="relative flex h-screen w-full items-center justify-center overflow-hidden px-6">
+    <section className="relative flex h-screen w-full items-center justify-center overflow-hidden px-4 sm:px-6">
       {/* SUN: Adjust size with w-[X] h-[X], position with top. Negative top = higher up */}
       <div
-        className="absolute left-1/2 h-360 w-360"
+        className="absolute left-1/2 -top-136 h-440 w-440 sm:-top-88 sm:h-256 sm:w-5xl lg:-top-120 lg:h-360 lg:w-360"
         style={{
-          top: "-30rem",
           transform: "translateX(-50%)",
           filter:
-            "drop-shadow(0 0 80px rgba(255, 215, 0, 0.4)) drop-shadow(0 0 150px rgba(255, 165, 0, 0.3))",
+            "drop-shadow(0 0 48px rgba(255, 215, 0, 0.35)) drop-shadow(0 0 90px rgba(255, 165, 0, 0.25))",
         }}
         aria-hidden
       >
@@ -22,7 +21,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-3xl text-center pt-24">
+      <div className="relative z-10 max-w-3xl pt-16 text-center sm:pt-24">
         <p
           className="mb-4 inline-block rounded-full border border-white/20 bg-black/50 px-5 py-2 text-sm font-bold uppercase tracking-[0.3em] text-white backdrop-blur-sm"
           style={{

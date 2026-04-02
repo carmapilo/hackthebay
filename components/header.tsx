@@ -67,7 +67,7 @@ export function Header() {
               </Link>
             ))}
           </div>
-          <div className="flex items-center gap-3 text-white">
+          <div className="hidden items-center gap-3 text-white md:flex">
             <Link
               href="https://www.instagram.com/hackthebay2026/"
               aria-label="Instagram"

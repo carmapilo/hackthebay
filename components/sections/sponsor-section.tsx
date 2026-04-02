@@ -54,7 +54,7 @@ export function SponsorSection() {
 
         {/* Remaining sponsors */}
         {sponsors.length > 1 && (
-          <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid w-full grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-8">
             {sponsors.slice(1).map((sponsor) => (
               <div key={sponsor.name} className="flex flex-col items-center">
                 <div className="group relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl border border-cyan-400/40 bg-linear-to-br from-slate-950/90 via-cyan-950/60 to-slate-950/90 shadow-[0_0_50px_rgba(34,211,238,0.18)]">
