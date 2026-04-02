@@ -8,6 +8,8 @@ import { siteContent } from "@/content/siteContent";
 export function LocationSection() {
   const { body, heading } = siteContent.location;
   const earthSrc = siteContent.assets.earth;
+  const naultCenterHref = "https://share.google/XQrJJpvmajZxOfkv1";
+  const [beforeNaultCenter, afterNaultCenter] = body.split("Nault Center");
   const [isHovered, setIsHovered] = useState(false);
   const targetDate = useMemo(
     () => new Date("2026-04-11T08:00:00"), // update to your event start
@@ -70,11 +72,29 @@ export function LocationSection() {
           </motion.div>
 
           <div className="relative z-10 w-full max-w-lg -mt-6 rounded-xl border border-cyan-400/60 bg-slate-900/70 p-6 text-white backdrop-blur md:static md:mt-0 md:translate-y-0">
-            <p className="mt-3 text-base text-cyan-100/90">{body}</p>
+            <p className="mt-3 text-base text-cyan-100/90">
+              {afterNaultCenter !== undefined ? (
+                <>
+                  {beforeNaultCenter}
+                  <a
+                    href={naultCenterHref}
+                    style={{ textDecoration: "underline" }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-amber-300 underline decoration-amber-300/70 underline-offset-2 transition hover:text-amber-200"
+                  >
+                    Nault Center
+                  </a>
+                  {afterNaultCenter}
+                </>
+              ) : (
+                body
+              )}
+            </p>
 
             <div className="mt-6 grid grid-cols-2 gap-3 text-xs uppercase tracking-[0.18em] text-cyan-200/80">
               <span className="rounded border border-cyan-300/40 px-3 py-2 text-center">
-                Tampa • FL
+                USF Nault Center
               </span>
               <span className="rounded border border-cyan-300/40 px-3 py-2 text-center">
                 April 11

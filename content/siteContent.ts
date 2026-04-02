@@ -41,7 +41,7 @@ export type ScheduleDay = {
 
 export const siteContent = {
   assets: {
-    sun: "/assets/sun.webp",
+    sun: "/assets/sun.avif",
     mercury: "/assets/mercury.webp",
     venus: "/assets/venus.webp",
     earth: "/assets/earth.webp",
@@ -69,8 +69,8 @@ export const siteContent = {
   hero: {
     title: "Hack The Bay",
     subtitle: "Launch",
-    tagline: "Tampa's largest student hackathon",
-    cta: "Apply Now",
+    // tagline: "Tampa's largest student hackathon",
+    cta: "Register Now",
     ctaHref: "#apply",
   },
   about: {
@@ -79,14 +79,14 @@ export const siteContent = {
   },
   location: {
     heading: "Where?",
-    body: "Join us at the University of South Florida in Tampa, Florida for 12 hours of building, mentoring, and cosmic inspiration.",
+    body: "Join us at the University of South Florida's Nault Center for 12 hours of building, mentoring, and cosmic inspiration.",
   },
   speakers: {
     heading: "Meet Our Speakers",
     speakers: [
       {
         id: "speaker1",
-        name: "Dr. Sarah Chen",
+        name: "To be announced",
         role: "AI Research Lead",
         company: "TechBay Labs",
         bio: "Leading AI researcher with 10+ years of experience in machine learning and neural networks. Passionate about mentoring the next generation of tech innovators.",
@@ -159,7 +159,7 @@ export const siteContent = {
     planetName: "Saturn",
     days: [
       {
-        label: "April 11",
+        label: "April 11 @ USF Nault Center",
         date: "",
         items: [
           {
@@ -230,7 +230,7 @@ export const siteContent = {
       {
         question: "When does the hackathon start?",
         answer:
-          "Hack The Bay 2025 starts on March 15th at 8:00 AM at the University of South Florida.",
+          "Hack The Bay Launch starts on April 11th at 8:00 AM at the University of South Florida.",
       },
       {
         question: "How long is the hackathon?",
@@ -247,8 +247,8 @@ export const siteContent = {
     id: "apply",
     heading: "Launch Your Project",
     body: "Secure your spot at Hack The Bay: Launch",
-    button: "Apply Now",
-    buttonHref: "https://hackthebay.net",
+    button: "Register Now",
+    buttonHref: "https://events.mlh.io/events/13936-hack-the-bay-launch",
   },
   sponsors: {
     heading: "Sponsors",
@@ -256,7 +256,18 @@ export const siteContent = {
       { name: "Google", logo: "/sponsors/google.webp" },
       { name: "Celcius", logo: "/sponsors/celcius.webp" },
       { name: "9Yaps", logo: "/sponsors/9yaps.webp" },
-      { name: "Uber", logo: "/sponsors/uber.webp" },
+      { name: "Primo", logo: "/sponsors/primo.webp" },
+      { name: "Zephyrhills", logo: "/sponsors/zephyrhills.webp" },
+      { name: "Cyber Florida", logo: "/sponsors/cyber_florida.webp" },
+      { name: "Whitehatters", logo: "/sponsors/whitehatters.webp" },
+      { name: "Google Cloud", logo: "/sponsors/google_cloud.webp" },
+      { name: "Zenardy", logo: "/sponsors/zenardy.webp" },
+      { name: "MLH", logo: "/sponsors/mlh.webp" },
+      { name: "Skillbit", logo: "/sponsors/skillbit.webp" },
+      { name: "Lake Michigan CU", logo: "/sponsors/lake_michigan.webp" },
+      { name: "Woolpert", logo: "/sponsors/woolpert.jpg" },
+
+      // { name: "Uber", logo: "/sponsors/uber.webp" },
     ] satisfies Sponsor[],
   },
 };

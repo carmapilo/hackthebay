@@ -5,7 +5,9 @@ export function Footer() {
     <footer className="w-full border-t border-white/10 bg-black/80 px-6 py-6 text-center text-xs uppercase tracking-[0.2em] text-cyan-100">
       <div className="mx-auto flex max-w-6xl justify-between items-center gap-2">
         <span className="text-[8px]">©HackTheBay</span>
-        <span className="text-[8px]">Website made by Carlos Pineda</span>
+        <span className="text-[8px]">
+          Made with ❤️ by the Hack the Bay team
+        </span>
 
         <div className=" flex items-center gap-4">
           <Link

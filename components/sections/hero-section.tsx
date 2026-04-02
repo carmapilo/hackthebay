@@ -1,51 +1,39 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { siteContent } from "@/content/siteContent";
 
 export function HeroSection() {
-  const { title, subtitle, tagline, cta, ctaHref } = siteContent.hero;
+  const { title, subtitle, cta } = siteContent.hero;
   const sunSrc = siteContent.assets.sun;
 
   return (
     <section className="relative flex h-screen w-full items-center justify-center overflow-hidden px-6">
       {/* SUN: Adjust size with w-[X] h-[X], position with top. Negative top = higher up */}
-      <motion.div
-        className="absolute h-[90rem] w-[90rem]"
+      <div
+        className="absolute left-1/2 h-360 w-360"
         style={{
           top: "-30rem",
           transform: "translateX(-50%)",
           filter:
             "drop-shadow(0 0 80px rgba(255, 215, 0, 0.4)) drop-shadow(0 0 150px rgba(255, 165, 0, 0.3))",
         }}
-        initial={{ scale: 0.9, opacity: 0.8 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.8 }}
         aria-hidden
       >
         <Image src={sunSrc} alt="" fill className="object-contain" priority />
-      </motion.div>
+      </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-3xl text-center pt-24">
-        <motion.p
+        <p
           className="mb-4 inline-block rounded-full border border-white/20 bg-black/50 px-5 py-2 text-sm font-bold uppercase tracking-[0.3em] text-white backdrop-blur-sm"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
           style={{
             textShadow: "0 2px 8px rgba(0,0,0,0.9)",
           }}
         >
-          Tampa, Florida • 12-Hour Build
-        </motion.p>
+          Tampa, Florida • Saturday April 11
+        </p>
 
-        <motion.h1
+        <h1
           className="text-5xl font-black sm:text-6xl md:text-7xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
           style={{
             color: "#1a1a1a",
             textShadow:
@@ -54,13 +42,10 @@ export function HeroSection() {
           }}
         >
           {title}
-        </motion.h1>
+        </h1>
 
-        <motion.p
+        <p
           className="mt-1 text-4xl font-black sm:text-5xl md:text-6xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.6 }}
           style={{
             color: "#1a1a1a",
             textShadow:
@@ -69,36 +54,18 @@ export function HeroSection() {
           }}
         >
           {subtitle}
-        </motion.p>
+        </p>
 
-        <motion.div
-          className="mt-5 inline-flex items-center gap-2 rounded-full border border-amber-400/50 bg-black/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-amber-100 backdrop-blur-sm"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
-        >
+        <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-amber-400/50 bg-black/40 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-amber-100 backdrop-blur-sm">
           12-Hour Hackathon • Spring 2026
-        </motion.div>
+        </div>
 
-        <motion.p
-          className="mt-6 text-lg text-white/90 sm:text-xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          style={{ textShadow: "0 2px 10px rgba(0,0,0,0.7)" }}
-        >
-          {tagline}
-        </motion.p>
-
-        <motion.div
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-        >
+        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
-            href={ctaHref}
-            className="rounded-full bg-gradient-to-r from-amber-400 to-orange-500 px-8 py-3 text-lg font-bold text-black shadow-lg shadow-amber-500/30 transition hover:scale-105 hover:shadow-amber-400/50"
+            href="https://events.mlh.io/events/13936-hack-the-bay-launch"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full bg-linear-to-r from-amber-400 to-orange-500 px-8 py-3 text-lg font-bold text-black shadow-lg shadow-amber-500/30 transition hover:scale-105 hover:shadow-amber-400/50"
           >
             {cta}
           </a>
@@ -109,7 +76,7 @@ export function HeroSection() {
           >
             Explore the System ↓
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

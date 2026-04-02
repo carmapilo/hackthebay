@@ -11,9 +11,7 @@ export function SpeakersSection() {
     [],
   );
   const [isHovered, setIsHovered] = useState(false);
-  const [selectedSpeaker, setSelectedSpeaker] = useState<string>(
-    speakers[0]?.id ?? "",
-  );
+  const [selectedSpeaker] = useState<string>(speakers[0]?.id ?? "");
   const activeSpeaker =
     speakers.find((speaker) => speaker.id === selectedSpeaker) ?? null;
 
@@ -50,6 +48,13 @@ export function SpeakersSection() {
 
             {/* Speaker buttons on the planet */}
             <div className="relative z-10 h-full w-full">
+              {/* <div className="absolute inset-0 flex items-center justify-center">
+                <span className="rounded-full border border-orange-200/60 bg-slate-950/55 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-orange-100">
+                  To Be Announced
+                </span>
+              </div> */}
+
+              {/*
               {speakers.map((speaker) => {
                 const x = speaker.position?.x ?? 0;
                 const y = speaker.position?.y ?? 0;
@@ -104,6 +109,7 @@ export function SpeakersSection() {
                   </motion.button>
                 );
               })}
+              */}
             </div>
 
             <motion.span
@@ -117,6 +123,11 @@ export function SpeakersSection() {
 
           {/* Speaker Info Card */}
           <div className="relative z-10 order-2 w-full max-w-lg -mt-6 rounded-xl border border-orange-400/60 bg-slate-900/70 p-6 text-white backdrop-blur md:order-1 md:static md:mt-0 md:translate-y-0">
+            <h2 className="text-2xl font-bold uppercase tracking-widest text-orange-200">
+              To Be Announced
+            </h2>
+
+            {/*
             <h2 className="text-2xl font-bold text-orange-300">
               {activeSpeaker
                 ? activeSpeaker.name
@@ -137,6 +148,7 @@ export function SpeakersSection() {
                 Click on a speaker icon to learn more about them!
               </p>
             )}
+            */}
           </div>
         </div>
       </div>

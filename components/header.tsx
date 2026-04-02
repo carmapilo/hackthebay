@@ -4,18 +4,32 @@ import Link from "next/link";
 import { useState } from "react";
 
 const links = [
-  { href: "#about", label: "About" },
+  // { href: "#about", label: "About" },
   { href: "#location", label: "Where" },
   // { href: "#speakers", label: "Speakers" },
   { href: "#tracks", label: "Tracks" },
   { href: "#schedule", label: "Schedule" },
   // { href: "#faq", label: "FAQ" },
   { href: "#sponsors", label: "Sponsors" },
-  { href: "#apply", label: "Apply" },
+  { href: "#apply", label: "Register" },
 ];
 
 export function Header() {
   const [open, setOpen] = useState(false);
+
+  const handleSectionLinkClick = (href: string) => {
+    if (!href.startsWith("#")) {
+      return;
+    }
+
+    const target = document.querySelector(href);
+    if (!target) {
+      return;
+    }
+
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", href);
+  };
 
   return (
     <header
@@ -44,6 +58,10 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 className="rounded px-3 py-2 transition hover:bg-white/5 hover:text-cyan-200"
+                onClick={(event) => {
+                  event.preventDefault();
+                  handleSectionLinkClick(link.href);
+                }}
               >
                 {link.label}
               </Link>
@@ -106,7 +124,11 @@ export function Header() {
               key={link.href}
               href={link.href}
               className="rounded px-3 py-2 transition hover:bg-white/5 hover:text-cyan-200"
-              onClick={() => setOpen(false)}
+              onClick={(event) => {
+                event.preventDefault();
+                handleSectionLinkClick(link.href);
+                setOpen(false);
+              }}
             >
               {link.label}
             </Link>
