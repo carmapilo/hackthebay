@@ -74,7 +74,7 @@ export function SponsorSection() {
                     )}
                   </div>
                 </div>
-                <span className="mt-4 rounded-full border border-cyan-300/40 bg-black/70 px-4 py-2 text-sm font-semibold uppercase tracking-[0.28em] text-cyan-100/95 shadow-[0_0_18px_rgba(34,211,238,0.2)]">
+                <span className="mt-4 max-w-full rounded-full border border-cyan-300/40 bg-black/70 px-2 py-1 text-[10px] leading-tight font-semibold uppercase tracking-[0.12em] text-cyan-100/95 shadow-[0_0_18px_rgba(34,211,238,0.2)] sm:px-4 sm:py-2 sm:text-sm sm:tracking-[0.28em]">
                   {sponsor.name}
                 </span>
               </div>

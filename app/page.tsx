@@ -7,6 +7,7 @@ import { TracksSection } from "@/components/sections/tracks-section";
 import { AboutSection } from "@/components/sections/about-section";
 import { Starfield } from "@/components/starfield";
 import { SponsorSection } from "@/components/sections/sponsor-section";
+import { PrizesSection } from "@/components/sections/prizes-section";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { ScheduleSection } from "@/components/sections/schedule-section";
@@ -28,7 +29,7 @@ export default function Home() {
         <AboutSection />
         <div className="relative">
           <LocationSection />
-          <div className="pointer-events-none absolute bottom-[-6rem] left-[10%] h-24 w-24 rotate-6 sm:h-36 sm:w-36 md:h-44 md:w-44">
+          <div className="pointer-events-none absolute -bottom-24 left-[10%] h-24 w-24 rotate-6 sm:h-36 sm:w-36 md:h-44 md:w-44">
             <Image
               src={asteroidCluster1}
               alt=""
@@ -53,6 +54,7 @@ export default function Home() {
         <FAQSection />
 
         <SponsorSection />
+        <PrizesSection />
         <CTASection />
       </main>
       <Footer />

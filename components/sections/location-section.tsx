@@ -76,15 +76,9 @@ export function LocationSection() {
               {afterNaultCenter !== undefined ? (
                 <>
                   {beforeNaultCenter}
-                  <a
-                    href={naultCenterHref}
-                    style={{ textDecoration: "underline" }}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-amber-300 underline decoration-amber-300/70 underline-offset-2 transition hover:text-amber-200"
-                  >
+                  <span className="font-semibold text-amber-300">
                     Nault Center
-                  </a>
+                  </span>
                   {afterNaultCenter}
                 </>
               ) : (
@@ -93,10 +87,16 @@ export function LocationSection() {
             </p>
 
             <div className="mt-6 grid grid-cols-2 gap-3 text-xs uppercase tracking-[0.18em] text-cyan-200/80">
-              <span className="rounded border border-cyan-300/40 px-3 py-2 text-center">
+              <a
+                href={naultCenterHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded border border-cyan-200/70 bg-cyan-300/12 px-3 py-2 text-center font-bold text-cyan-50 shadow-[0_0_20px_rgba(34,211,238,0.2)] transition hover:scale-[1.02] hover:border-cyan-100 hover:bg-cyan-300/20"
+              >
                 USF Nault Center
-              </span>
-              <span className="rounded border border-cyan-300/40 px-3 py-2 text-center">
+                <span aria-hidden>↗</span>
+              </a>
+              <span className="inline-flex items-center justify-center rounded border border-cyan-300/40 px-3 py-2 text-center">
                 April 11
               </span>
             </div>

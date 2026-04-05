@@ -72,6 +72,9 @@ export const siteContent = {
     // tagline: "Tampa's largest student hackathon",
     cta: "Register Now",
     ctaHref: "#apply",
+    volunteerCta: "Volunteer",
+    volunteerCtaHref:
+      "https://docs.google.com/forms/d/e/1FAIpQLScLQRMIClOFM4y3AHOqTjeOpzoKt-l8aDc6XkXzmcLeWZqqnw/viewform",
   },
   about: {
     title: "About",
@@ -119,7 +122,7 @@ export const siteContent = {
     ] satisfies Speaker[],
   },
   tracks: {
-    heading: "Pick Your Track",
+    heading: "Hackathon Tracks",
     tracks: [
       {
         id: "fintech",
@@ -249,11 +252,13 @@ export const siteContent = {
     body: "Secure your spot at Hack The Bay: Launch",
     button: "Register Now",
     buttonHref: "https://events.mlh.io/events/13936-hack-the-bay-launch",
+    volunteerButton: "Volunteer",
   },
   sponsors: {
     heading: "Sponsors",
     sponsors: [
       { name: "Google", logo: "/sponsors/google.webp" },
+      { name: "Init", logo: "/sponsors/init.webp" },
       { name: "Celcius", logo: "/sponsors/celcius.webp" },
       { name: "9Yaps", logo: "/sponsors/9yaps.webp" },
       { name: "Primo", logo: "/sponsors/primo.webp" },
@@ -266,8 +271,8 @@ export const siteContent = {
       { name: "Skillbit", logo: "/sponsors/skillbit.webp" },
       { name: "Lake Michigan CU", logo: "/sponsors/lake_michigan.webp" },
       { name: "Woolpert", logo: "/sponsors/woolpert.jpg" },
-
-      // { name: "Uber", logo: "/sponsors/uber.webp" },
+      { name: "HTB", logo: "/sponsors/hackthebox.webp" },
+      { name: "Cyber Herd", logo: "/sponsors/cyberherd.webp" },
     ] satisfies Sponsor[],
   },
 };

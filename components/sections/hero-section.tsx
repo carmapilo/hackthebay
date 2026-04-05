@@ -2,7 +2,8 @@ import Image from "next/image";
 import { siteContent } from "@/content/siteContent";
 
 export function HeroSection() {
-  const { title, subtitle, cta } = siteContent.hero;
+  const { title, subtitle, cta, volunteerCta, volunteerCtaHref } =
+    siteContent.hero;
   const sunSrc = siteContent.assets.sun;
 
   return (
@@ -59,7 +60,7 @@ export function HeroSection() {
           12-Hour Hackathon • Spring 2026
         </div>
 
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
             href="https://events.mlh.io/events/13936-hack-the-bay-launch"
             target="_blank"
@@ -69,13 +70,22 @@ export function HeroSection() {
             {cta}
           </a>
           <a
-            href="#about"
-            className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-100/90 transition hover:text-amber-300"
-            style={{ textShadow: "0 2px 6px rgba(0,0,0,0.5)" }}
+            href={volunteerCtaHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-cyan-300/70 bg-cyan-300/15 px-8 py-3 text-lg font-bold text-cyan-100 shadow-lg shadow-cyan-400/20 transition hover:scale-105 hover:border-cyan-200 hover:bg-cyan-300/25"
           >
-            Explore the System ↓
+            {volunteerCta}
           </a>
         </div>
+
+        <p
+          className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-amber-100/90"
+          style={{ textShadow: "0 2px 6px rgba(0,0,0,0.5)" }}
+          aria-hidden
+        >
+          Explore the System ↓
+        </p>
       </div>
     </section>
   );

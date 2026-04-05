@@ -2,18 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useMemo, useState } from "react";
-import { siteContent, type Speaker } from "@/content/siteContent";
+import { useState } from "react";
+import { siteContent } from "@/content/siteContent";
 
 export function SpeakersSection() {
-  const speakers = useMemo(
-    () => siteContent.speakers.speakers as Speaker[],
-    [],
-  );
   const [isHovered, setIsHovered] = useState(false);
-  const [selectedSpeaker] = useState<string>(speakers[0]?.id ?? "");
-  const activeSpeaker =
-    speakers.find((speaker) => speaker.id === selectedSpeaker) ?? null;
 
   return (
     <section
@@ -22,11 +15,11 @@ export function SpeakersSection() {
     >
       <div className="relative flex w-full max-w-6xl flex-col items-center justify-center gap-8 text-center md:text-left">
         <p className="relative z-20 w-full text-center text-4xl font-black uppercase tracking-[0.25em] text-orange-200">
-          {siteContent.speakers.heading}
+          CTF Tournament
         </p>
 
         <div className="relative flex w-full flex-col items-center justify-center gap-6 md:gap-10 md:flex-row md:items-center">
-          {/* Mars Planet with Speakers */}
+          {/* Mars Planet */}
           <motion.div
             className="relative order-1 flex h-60 w-60 shrink-0 items-center justify-center md:order-2 md:h-72 md:w-72 lg:h-86 lg:w-86"
             animate={{
@@ -46,72 +39,6 @@ export function SpeakersSection() {
               />
             </div>
 
-            {/* Speaker buttons on the planet */}
-            <div className="relative z-10 h-full w-full">
-              {/* <div className="absolute inset-0 flex items-center justify-center">
-                <span className="rounded-full border border-orange-200/60 bg-slate-950/55 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-orange-100">
-                  To Be Announced
-                </span>
-              </div> */}
-
-              {/*
-              {speakers.map((speaker) => {
-                const x = speaker.position?.x ?? 0;
-                const y = speaker.position?.y ?? 0;
-
-                const isActive = selectedSpeaker === speaker.id;
-
-                return (
-                  <motion.button
-                    key={speaker.id}
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      setSelectedSpeaker(speaker.id);
-                    }}
-                    className="absolute flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-xs font-bold text-slate-800 shadow-lg transition hover:bg-white"
-                    style={{
-                      left: "50%",
-                      top: "50%",
-                      transform: "translate(-50%, -50%)",
-                    }}
-                    initial={{ x, y }}
-                    animate={{
-                      x,
-                      y,
-                      scale: isActive ? 1.4 : 1,
-                      backgroundColor: isActive
-                        ? "rgb(251, 191, 36)"
-                        : "rgba(255, 255, 255, 0.9)",
-                    }}
-                    whileHover={{ scale: 1.3, x, y }}
-                    whileTap={{ scale: 0.98, x, y }}
-                    aria-label={speaker.name}
-                  >
-                    {isActive && (
-                      <span className="absolute inset-0 -z-10 rounded-full bg-yellow-300/60 blur-sm" />
-                    )}
-                    {speaker.image && speaker.image.length > 0 ? (
-                      <Image
-                        src={speaker.image}
-                        alt={speaker.name}
-                        width={40}
-                        height={40}
-                        className="rounded-full object-cover"
-                      />
-                    ) : (
-                      <span className="text-[10px] font-bold">
-                        {speaker.name
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
-                      </span>
-                    )}
-                  </motion.button>
-                );
-              })}
-              */}
-            </div>
-
             <motion.span
               className="absolute right-1 top-1 -rotate-320 text-sm uppercase tracking-[0.25em] text-orange-100/80 md:right-2 md:top-2"
               animate={{ scale: isHovered ? 1.06 : 1, y: 0 }}
@@ -121,34 +48,22 @@ export function SpeakersSection() {
             </motion.span>
           </motion.div>
 
-          {/* Speaker Info Card */}
+          {/* CTF Info Card */}
           <div className="relative z-10 order-2 w-full max-w-lg -mt-6 rounded-xl border border-orange-400/60 bg-slate-900/70 p-6 text-white backdrop-blur md:order-1 md:static md:mt-0 md:translate-y-0">
             <h2 className="text-2xl font-bold uppercase tracking-widest text-orange-200">
-              To Be Announced
+              CTF Tournament
             </h2>
-
-            {/*
-            <h2 className="text-2xl font-bold text-orange-300">
-              {activeSpeaker
-                ? activeSpeaker.name
-                : "Click a speaker to learn more"}
-            </h2>
-            {activeSpeaker && (
-              <>
-                <p className="mt-1 text-sm text-orange-200/80">
-                  {activeSpeaker.role} at {activeSpeaker.company}
-                </p>
-                <p className="mt-4 text-base text-orange-50/90">
-                  {activeSpeaker.bio}
-                </p>
-              </>
-            )}
-            {!activeSpeaker && (
-              <p className="mt-3 text-base text-orange-50/90">
-                Click on a speaker icon to learn more about them!
-              </p>
-            )}
-            */}
+            <p className="mt-4 text-base leading-relaxed text-orange-50/90">
+              Powered by{" "}
+              <span className="font-semibold text-amber-300">WhiteHatters</span>{" "}
+              and{" "}
+              <span className="font-semibold text-amber-300">Cyber Herd</span>,
+              the CTF Tournament is a high-stakes cybersecurity competition
+              featuring both red team and blue team challenges. Participants
+              will think like attackers and defenders while tackling real-world
+              scenarios across web exploitation, cryptography, reverse
+              engineering, and forensics as part of your Hack the Bay mission.
+            </p>
           </div>
         </div>
       </div>

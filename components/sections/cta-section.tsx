@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { siteContent } from "@/content/siteContent";
 
 export function CTASection() {
-  const { id, heading, body, button, buttonHref } = siteContent.cta;
+  const { id, heading, body, button, buttonHref, volunteerButton } =
+    siteContent.cta;
+  const volunteerHref = siteContent.hero.volunteerCtaHref;
 
   return (
     <section
@@ -22,7 +24,7 @@ export function CTASection() {
           {heading}
         </h2>
         <p className="mt-4 text-lg text-cyan-100/85">{body}</p>
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
             href={buttonHref}
             target="_blank"
@@ -30,6 +32,14 @@ export function CTASection() {
             className="rounded-full bg-cyan-400 px-8 py-3 text-lg font-bold text-black shadow-lg transition hover:scale-105 hover:shadow-cyan-400/40"
           >
             {button}
+          </a>
+          <a
+            href={volunteerHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-cyan-300/70 bg-cyan-300/15 px-8 py-3 text-lg font-bold text-cyan-100 shadow-lg transition hover:scale-105 hover:bg-cyan-300/25 hover:shadow-cyan-400/30"
+          >
+            {volunteerButton}
           </a>
         </div>
       </motion.div>
